@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Linux编程环境 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  
+  <meta name="description" content="Linux编程环境
+vim的使用建立打开文件1Linu..."> 
+  
+  <meta name="author" content="John Doe"> 
+  <link rel="shortcut icon" href="/null">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {}
+    CONFIG = {
+      fancybox: ,
+      pjax: ,
+      highlight: ,
+      donate_alipay: '',
+      donate_wechat: '',
+      gitalk: {
+        enable: ,
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+      },
+      motto: {
+        api: '',
+        default: ''
+      }
+    }
+  </script>
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="lock-screen">
+  <div class="loading">
+  <div class="loading-wrap">
+    <div class="loading-spinner">
+      <div class="loading-bounce1"></div>
+      <div class="loading-bounce2"></div>
+    </div>
+  </div>
+</div>
+  <header>
+  <nav class="menu">
+  <i class="iconfont iconclose-circle menu-close"></i>
+  <ul class="menu-content">
+    
+  </ul>
+  <div class="menu-copyright"></div>
+</nav>
+</header>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img src="/null" draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Linux编程环境</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-04</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>4177</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h2 id="Linux编程环境"><a href="#Linux编程环境" class="headerlink" title="Linux编程环境"></a>Linux编程环境</h2><ul>
+<li><h3 id="vim的使用"><a href="#vim的使用" class="headerlink" title="vim的使用"></a>vim的使用</h3><h4 id="建立打开文件"><a href="#建立打开文件" class="headerlink" title="建立打开文件"></a>建立打开文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux# vim hello.c</span><br></pre></td></tr></table></figure>
+<h4 id="插入模式：I-显示：——INSERT"><a href="#插入模式：I-显示：——INSERT" class="headerlink" title="插入模式：I      显示：——INSERT"></a>插入模式：I      显示：——INSERT</h4><h4 id="普通模式：ESC-——“嘀”"><a href="#普通模式：ESC-——“嘀”" class="headerlink" title="普通模式：ESC    ——“嘀”"></a>普通模式：ESC    ——“嘀”</h4><h4 id="退出vim：-：wq！-——保存退出"><a href="#退出vim：-：wq！-——保存退出" class="headerlink" title="退出vim： ：wq！  ——保存退出"></a>退出vim： ：wq！  ——保存退出</h4><blockquote>
+<p>:q!  不保存退出</p>
+</blockquote>
+<h4 id="查找字符串：-XXX"><a href="#查找字符串：-XXX" class="headerlink" title="查找字符串：/XXX"></a>查找字符串：/XXX</h4><h4 id="跳到某一行n-：n"><a href="#跳到某一行n-：n" class="headerlink" title="跳到某一行n: ：n"></a>跳到某一行n: ：n</h4><h4 id="设置行号：-“-set-number-”"><a href="#设置行号：-“-set-number-”" class="headerlink" title="设置行号： “:set number ”"></a>设置行号： “:set number ”</h4></li>
+<li><h3 id="GCC"><a href="#GCC" class="headerlink" title="GCC"></a>GCC</h3><blockquote>
+<h3 id="Linux编译工具集"><a href="#Linux编译工具集" class="headerlink" title="Linux编译工具集"></a>Linux编译工具集</h3><h3 id="多种语言，交叉编译"><a href="#多种语言，交叉编译" class="headerlink" title="多种语言，交叉编译"></a>多种语言，交叉编译</h3></blockquote>
+<h3 id="GCC工具集不仅能编译C-C-语言，其他例如Object-C、Pascal、Fortran、Java、Ada等均能进行编译"><a href="#GCC工具集不仅能编译C-C-语言，其他例如Object-C、Pascal、Fortran、Java、Ada等均能进行编译" class="headerlink" title="GCC工具集不仅能编译C/C++语言，其他例如Object-C、Pascal、Fortran、Java、Ada等均能进行编译"></a>GCC工具集不仅能编译C/C++语言，其他例如Object-C、Pascal、Fortran、Java、Ada等均能进行编译</h3></li>
+<li>编译程序的基本知识:GCC编译器对程序的编译分为四个阶段：预处理、编译和优化、汇编、链接。</li>
+<li>单个文件编译成执行文件：gcc  文件名<blockquote>
+<p>自动编译的过程包括头文件扩展、目标文件编译、以及链接默认的系统库生成可执行文件，最后生成系统默认的可执行程序a.out。<br>中间文件作为临时文件存在，在可执行文件生成后，会删除中间文件。</p>
+</blockquote>
+</li>
+<li>编译生成目标文件：目标文件是指经过编译器的编译生成的CPU可识别的二进制代码，因为其中的一些函数过程没有相关的指示和说明，目标文件不能执行。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Debain#gcc –c hello.c</span><br></pre></td></tr></table></figure>
+默认情况下生成的目标文件的文件名和源文件的名称一样，只是扩展名为.o。</li>
+<li>多文件编译:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc string.c  main.c</span><br></pre></td></tr></table></figure></li>
+<li>预处理:将源文件中的头文件包含进源文件中，并且将文件中定义的宏进行扩展。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Debain#gcc –E string.c</span><br></pre></td></tr></table></figure>
+如果需要指定源文件预编译后生成的中间结果文件名，需要使用选项-o</li>
+<li>编译成汇编语言<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Debain#gcc –S string.c</span><br></pre></td></tr></table></figure>
+默认情况下生成的文件名和源文件一致，扩展名为.s<ul>
+<li>生成和使用静态链接库<blockquote>
+<p>1.静态库是以obj文件的集合，“.a”为后缀，用ar程序生成<br>2.在不用重新编译程序库代码的情况下，进行程序的重新连接，节省编译过程的时间<br>3.可以提供库文件给使用的人员</p>
+<blockquote>
+<p>生成静态链接库：先生成静态文件</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Debain#ar -rcs libstr.a  string.o</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>使用静态链接库：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Linux# gcc -o test main.c libstr.a</span><br><span class="line">Linux# gcc -o test main.c -lstr    &#x2F;&#x2F;-l命令，在系统默认的路径下查找库函数</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>生成动态链接库<blockquote>
+<p>名称：</p>
+<blockquote>
+<p>别名由一个前缀“lib”，然后是库的名字，再加上一个后缀“.so”构成。<br>真名是动态链接库的真实名称，一般总是在别名的基础上加上一个小版本号、发布版本等构成。<br>库中函数和变量的地址是相对地址，在动态链接库与程序加载时转为绝对地址</p>
+</blockquote>
+</blockquote>
+<h5 id="在动态链接库安装的时候，总是复制库文件到某个目录下，然后用一个软连接生成别名，在库文件进行更新的时候，仅仅更新软链接"><a href="#在动态链接库安装的时候，总是复制库文件到某个目录下，然后用一个软连接生成别名，在库文件进行更新的时候，仅仅更新软链接" class="headerlink" title="在动态链接库安装的时候，总是复制库文件到某个目录下，然后用一个软连接生成别名，在库文件进行更新的时候，仅仅更新软链接"></a>在动态链接库安装的时候，总是复制库文件到某个目录下，然后用一个软连接生成别名，在库文件进行更新的时候，仅仅更新软链接</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux# -shared -W1, -soname, libstr.so -o libstr.so.l string.c</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一般将动态链接库复制到系统默认的动态链接库路径下：/etc/ld.so.conf<br>查看动态链接库配置文件的内容：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jinxiang@jinxiang-virtual-machine:~$ cat &#x2F;etc&#x2F;ld.so.conf </span><br><span class="line">include &#x2F;etc&#x2F;ld.so.conf.d&#x2F;*.conf    &#x2F;&#x2F;查看文件内容</span><br><span class="line">jinxiang@jinxiang-virtual-machine:~$ ls &#x2F;etc&#x2F;ld.so.conf.d</span><br><span class="line">libc.conf  vmware-tools-libraries.conf  x86_64-linux-gnu.conf</span><br><span class="line">jinxiang@jinxiang-virtual-machine:~$ ls &#x2F;etc&#x2F;ld.so.conf.d&#x2F;</span><br><span class="line">libc.conf  vmware-tools-libraries.conf  x86_64-linux-gnu.conf</span><br><span class="line">jinxiang@jinxiang-virtual-machine:~$ cat  &#x2F;etc&#x2F;ld.so.conf.d&#x2F;x86_64-linux-gnu.conf      &#x2F;&#x2F;查看配置文件</span><br><span class="line"># Multiarch support</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;lib&#x2F;x86_64-linux-gnu</span><br><span class="line">&#x2F;lib&#x2F;x86_64-linux-gnu</span><br><span class="line">&#x2F;usr&#x2F;lib&#x2F;x86_64-linux-gnu</span><br></pre></td></tr></table></figure>
+查看所使用的动态链接库：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jinxiang@jinxiang-virtual-machine:~$ ldconfig -p</span><br></pre></td></tr></table></figure></li>
+<li>动态加载库:动态加载库可以用程序的方法来控制什么时候加载库<blockquote>
+<p>动态加载库主要有函数dlopen()(打开动态库)、dlerror()、dlsym()（获得函数指针）和dlclose()来控制动态库的使用</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="Makefile文件"><a href="#Makefile文件" class="headerlink" title="Makefile文件"></a>Makefile文件</h3><ul>
+<li>多个文件的编译<br><img src="!%5Bavatar%5D(http://i.caigoubao.cc/626943/QQ%E5%9B%BE%E7%89%8720191115172850.png" alt="文件目录结构">)<br>头文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* add.h *&#x2F;</span><br><span class="line"></span><br><span class="line">#ifdef __ADD_H__     &#x2F;&#x2F;防止双重定义</span><br><span class="line"></span><br><span class="line">#define __ADD_H__</span><br><span class="line"></span><br><span class="line">extern int add_int(int a, int b);</span><br><span class="line"></span><br><span class="line">extern float add_float(float a, float b);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#endif &#x2F;*__ADD_H__*&#x2F;</span><br></pre></td></tr></table></figure>
+源文件：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;* add_float.c *&#x2F;</span><br><span class="line"></span><br><span class="line">&#x2F;* 浮点数求和函数 *&#x2F;</span><br><span class="line"></span><br><span class="line">float add_float(float a, float b)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	return a+b;	</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>1.命令行编译程序：先生成目标文件，再生成可执行文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -c add&#x2F;add_int.c -o add&#x2F;add_int.o</span><br></pre></td></tr></table></figure></li>
+<li>2.makefile文件编译<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">cacu:add&#x2F;add_int.o add&#x2F;add_float.o sub&#x2F;sub_int.o sub&#x2F;sub_float.o</span><br><span class="line">	gcc -o cacu add&#x2F;add_int.o add&#x2F;add_float.o sub&#x2F;sub_int.o sub&#x2F;sub_float.o</span><br><span class="line">    </span><br><span class="line">add_int.o:add&#x2F;add_int.c add&#x2F;add.h</span><br><span class="line">	gcc -c -o add&#x2F;add_int.o add&#x2F;add_int.c </span><br><span class="line"></span><br><span class="line">add_float.o:add&#x2F;add_float.c add&#x2F;add.h</span><br><span class="line">	gcc -c -o add&#x2F;add_float.o add&#x2F;add_float.c </span><br><span class="line">sub_int.o:sub&#x2F;sub_int.c sub&#x2F;sub.h</span><br><span class="line">	gcc -c -o sub&#x2F;sub_int.o sub&#x2F;sub_int.c </span><br><span class="line">sub_float.o:sub&#x2F;sub_float.c sub&#x2F;sub.h</span><br><span class="line">	gcc -c -o sub&#x2F;sub_float.o sub&#x2F;sub_float.c </span><br><span class="line"></span><br><span class="line">main.o:main.c add&#x2F;add.h sub&#x2F;sub.h</span><br><span class="line">	gcc -c -o main.o main.c -Iadd -Isub</span><br><span class="line">clean:</span><br><span class="line">    rm -f cacu add&#x2F;add_int.o add&#x2F;add_float.o \</span><br><span class="line">        sub&#x2F;sub_int.o sub&#x2F;sub_float.o main.o</span><br></pre></td></tr></table></figure></li>
+<li>3.用户自定义的Makefile文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">CC &#x3D; gcc</span><br><span class="line">CFLAGS &#x3D; -Iadd -Isub -O2   &#x2F;&#x2F;加入头文件，搜索路径sub和add  o2为优化</span><br><span class="line">OBJS &#x3D; add&#x2F;add_int.o add&#x2F;add_float.o sub&#x2F;sub_float.o sub&#x2F;sub_int.o main.o</span><br><span class="line">TARGET &#x3D; cacu</span><br><span class="line">RM &#x3D; rm -f</span><br><span class="line"></span><br><span class="line">$(TARGET):$(OBJS)     &#x2F;&#x2F;目标：依赖项</span><br><span class="line">    $(CC) -o $(TARGET) $(OBJS) $(CFLAGS)</span><br><span class="line"></span><br><span class="line">$(OBJS):%o:%c</span><br><span class="line">    $(CC) -c $(CFLAGS) $&lt; -o $@</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">    $(RM) $(TARGET) $(OBJS)</span><br></pre></td></tr></table></figure>
+<h4 id="OBJS-o-c中-o-c-是将-OBJS-中以-o-结尾的文件替换成以-c-结尾的文件"><a href="#OBJS-o-c中-o-c-是将-OBJS-中以-o-结尾的文件替换成以-c-结尾的文件" class="headerlink" title="$(OBJS):%.o:%.c中 %.o:%.c 是将 $(OBJS) 中以 .o 结尾的文件替换成以 .c 结尾的文件"></a><strong>$(OBJS):%.o:%.c中 %.o:%.c 是将 $(OBJS) 中以 .o 结尾的文件替换成以 .c 结尾的文件</strong></h4></li>
+</ul>
+<h4 id="lt-表示依赖项中第一个依赖文件的名称"><a href="#lt-表示依赖项中第一个依赖文件的名称" class="headerlink" title="&lt;:表示依赖项中第一个依赖文件的名称"></a><strong>&lt;:表示依赖项中第一个依赖文件的名称</strong></h4><h4 id="表示目标项目标文件的名称"><a href="#表示目标项目标文件的名称" class="headerlink" title="@:表示目标项目标文件的名称"></a><strong>@:表示目标项目标文件的名称</strong></h4><h4 id="CFAGS：汇编语言编译器的编译选项，在生成main-o时没有指定编译选项，make程序自动调用了文件中定义的CFLAGS选项来增加头文件的搜索路径。（CFLAGS-I命令）"><a href="#CFAGS：汇编语言编译器的编译选项，在生成main-o时没有指定编译选项，make程序自动调用了文件中定义的CFLAGS选项来增加头文件的搜索路径。（CFLAGS-I命令）" class="headerlink" title="CFAGS：汇编语言编译器的编译选项，在生成main.o时没有指定编译选项，make程序自动调用了文件中定义的CFLAGS选项来增加头文件的搜索路径。（CFLAGS -I命令）"></a><strong>CFAGS：汇编语言编译器的编译选项，在生成main.o时没有指定编译选项，make程序自动调用了文件中定义的CFLAGS选项来增加头文件的搜索路径。（CFLAGS -I命令）</strong></h4><h3 id="用GDB调试程序"><a href="#用GDB调试程序" class="headerlink" title="用GDB调试程序"></a>用GDB调试程序</h3><h4 id="1-“q”退出GD，编译加入-g选项可用GDB调试"><a href="#1-“q”退出GD，编译加入-g选项可用GDB调试" class="headerlink" title="1.“q”退出GD，编译加入-g选项可用GDB调试"></a>1.“q”退出GD，编译加入-g选项可用GDB调试</h4><h4 id="2-设置参数：set-args-参数1-参数2"><a href="#2-设置参数：set-args-参数1-参数2" class="headerlink" title="2. 设置参数：set args 参数1 参数2"></a>2. 设置参数：set args 参数1 参数2</h4><h4 id="3-打印代码内容：list-开始的行号，ENTER继续"><a href="#3-打印代码内容：list-开始的行号，ENTER继续" class="headerlink" title="3.打印代码内容：list 开始的行号，ENTER继续"></a>3.打印代码内容：list 开始的行号，ENTER继续</h4><h4 id="4-设置断点：b-行号-条件（为真停止）-函数名称"><a href="#4-设置断点：b-行号-条件（为真停止）-函数名称" class="headerlink" title="4.设置断点：b 行号/条件（为真停止）/函数名称/"></a>4.设置断点：b 行号/条件（为真停止）/函数名称/</h4><h4 id="5-运行：run-参数"><a href="#5-运行：run-参数" class="headerlink" title="5.运行：run 参数"></a>5.运行：run 参数</h4><h4 id="6-显示变量：display-变量名-c-继续运行"><a href="#6-显示变量：display-变量名-c-继续运行" class="headerlink" title="6.显示变量：display 变量名 c:继续运行"></a>6.显示变量：display 变量名 c:继续运行</h4><h4 id="7-显示参数：show-args"><a href="#7-显示参数：show-args" class="headerlink" title="7.显示参数：show args"></a>7.显示参数：show args</h4><h4 id="8-列文件清单：l-2-5-二到五行"><a href="#8-列文件清单：l-2-5-二到五行" class="headerlink" title="8.列文件清单：l 2,5  (二到五行)"></a>8.列文件清单：l 2,5  (二到五行)</h4><h4 id="9-变量类型检测：whatis-变量名（详细信息用ptype）"><a href="#9-变量类型检测：whatis-变量名（详细信息用ptype）" class="headerlink" title="9.变量类型检测：whatis 变量名（详细信息用ptype）"></a>9.变量类型检测：whatis 变量名（详细信息用ptype）</h4><h4 id="10-单步调试：n"><a href="#10-单步调试：n" class="headerlink" title="10.单步调试：n"></a>10.单步调试：n</h4><h4 id="11-info："><a href="#11-info：" class="headerlink" title="11.info："></a>11.info：</h4><h3 id="help"><a href="#help" class="headerlink" title="help"></a>help</h3>
+    </section>
+    <section class="extra">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" rel="tag">Linux -  网络编程</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/07/TraceMe%E8%A1%A5%E4%B8%81%E5%AE%9E%E9%AA%8C/"><i class="iconfont iconleft"></i>TraceMe.exe进行补丁（爆破）</a>
+  
+  
+    <a href="/2019/11/04/%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E4%B8%8EC%E8%AF%AD%E8%A8%80/">汇编指令与C语言<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+  <div class="fab fab-plus">
+  <i class="iconfont iconplus"></i>
+</div>
+<div class="fab fab-up">
+  <i class="iconfont iconcaret-up"></i>
+</div>
+<div class="fab fab-menu">
+  <i class="iconfont iconmenu"></i>
+</div>
+</body>
+
+
+<script src="/lib/jquery/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+</html>

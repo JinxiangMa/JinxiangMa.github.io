@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>汇编语言的学习 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  
+  <meta name="description" content="汇编语言：
+汇编语言与操作系统平台相关，不存在移植性。..."> 
+  
+  <meta name="author" content="John Doe"> 
+  <link rel="shortcut icon" href="/null">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {}
+    CONFIG = {
+      fancybox: ,
+      pjax: ,
+      highlight: ,
+      donate_alipay: '',
+      donate_wechat: '',
+      gitalk: {
+        enable: ,
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+      },
+      motto: {
+        api: '',
+        default: ''
+      }
+    }
+  </script>
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="lock-screen">
+  <div class="loading">
+  <div class="loading-wrap">
+    <div class="loading-spinner">
+      <div class="loading-bounce1"></div>
+      <div class="loading-bounce2"></div>
+    </div>
+  </div>
+</div>
+  <header>
+  <nav class="menu">
+  <i class="iconfont iconclose-circle menu-close"></i>
+  <ul class="menu-content">
+    
+  </ul>
+  <div class="menu-copyright"></div>
+</nav>
+</header>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img src="/null" draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">汇编语言的学习</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-04</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>13746</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h3 id="汇编语言："><a href="#汇编语言：" class="headerlink" title="汇编语言："></a>汇编语言：</h3><blockquote>
+<p>汇编语言与操作系统平台相关，不存在移植性。对于IA-32架构平台而言，选用的是32位80386汇编语言，也就是说本教程讨论的操作系统平台是32位的，可执行文件的格式也是32位而不是64位或16位的。</p>
+</blockquote>
+<hr>
+<h1 id="16位和32位的80x86汇编语言的区别："><a href="#16位和32位的80x86汇编语言的区别：" class="headerlink" title="16位和32位的80x86汇编语言的区别："></a>16位和32位的80x86汇编语言的区别：</h1><blockquote>
+<ol>
+<li>16位操作系统中的中断调用相当于32位操作系统中的API调用。</li>
+<li>16位操作系统中用段地址和偏移地址寻址，在32位操作系统中统一采用平坦的内存地址模式寻址。</li>
+<li>16位操作系统中的程序运行在RING0级（最高权限），而32位操作系统中的程序一般只拥有RING3级运行权限，程序的所有操作都受到操作系统控制，若程序要获得RING0操作特权只能通过驱动程序实现。</li>
+<li>在32位的Windows操作系统中，可执行文件的格式叫PE格式，32位的Windows操作系统运行在CPU的保护模式之上，而16位的系统则运行在CPU的实模式上。</li>
+</ol>
+</blockquote>
+<hr>
+<h3 id="保护模式与实模式"><a href="#保护模式与实模式" class="headerlink" title="保护模式与实模式"></a>保护模式与实模式</h3><blockquote>
+<p>实模式：每个进程可访问的内存为4MB，可直接访问硬件</p>
+</blockquote>
+<blockquote>
+<p>保护模式：每个进程可访问的内存为4GB，进程间隔离</p>
+</blockquote>
+<p>保护模式同实模式的根本区别是进程内存受保护与否。可寻址空间的区别只是这一原因的果。实模式将整个物理内存看成分段的区域,程序代码和数据位于不同 区域，系统程序和用户程序没有区别对待，而且每一个指针都是指向”实在”的物理地址。这样一来，用户程序的一个指针如果指向了系统程序区域或其他用户程序 区域，并改变了值，那么对于这个被修改的系统程序或用户程序，其后果就很可能是灾难性的。为了克服这种低劣的内存管理方式，处理器厂商开发出保护模式。这 样，物理内存地址不能直接被程序访问，程序内部的地址（虚拟地址）要由操作系统转化为物理地址去访问，程序对此一无所知。</p>
+<hr>
+<h3 id="什么是IA-32？"><a href="#什么是IA-32？" class="headerlink" title="什么是IA-32？"></a>什么是IA-32？</h3><blockquote>
+<p>IA-32（Intel Architecture），英特尔体系架构，也就叫X86-32架构，在同一时间内可以处理32位二进制数据。CPU的工作宽度是32位。</p>
+</blockquote>
+<hr>
+<h3 id="了解EAX、EBX、ECX和EDX寄存器以及对应的16位寄存器"><a href="#了解EAX、EBX、ECX和EDX寄存器以及对应的16位寄存器" class="headerlink" title="了解EAX、EBX、ECX和EDX寄存器以及对应的16位寄存器"></a>了解EAX、EBX、ECX和EDX寄存器以及对应的16位寄存器</h3><blockquote>
+<p>IA-32架构共有4个32位寄存器：EAX、EBX、ECX和EDX，用于保存临时数据。“E”字母，含义是“Expand”扩展，“E”来区别是32位还是16位。</p>
+</blockquote>
+<p><img src="http://i.caigoubao.cc/626943/%E5%9B%BE%E7%89%871.png" alt="avatar"></p>
+<p>EAX：32位；     AX：16位；   AH：高八位：     AL：低八位</p>
+<p><strong>只有数据寄存器才可按这种方式划分</strong></p>
+<hr>
+<h3 id="学习EAX、EBX、ECX和EDX寄存器的用途"><a href="#学习EAX、EBX、ECX和EDX寄存器的用途" class="headerlink" title="学习EAX、EBX、ECX和EDX寄存器的用途"></a>学习EAX、EBX、ECX和EDX寄存器的用途</h3><ol>
+<li>EAX寄存器:累加器，常用于算数运算（乘法和除法运算中自动使用）、布尔操作、逻辑操作、返回函数返回值等。</li>
+<li>EBX寄存器:基址寄存器，常用于存档内存地址。</li>
+<li>ECX寄存器:计数寄存器，常用于存放循环语句的循环次数，字符串操作中也常用。</li>
+<li>EDX寄存器：数据寄存器，常常和EAX一起使用。<blockquote>
+<p>上面所述的4个通用寄存器的专门用途不是一成不变的，编译器在编译程序的时候会根据很多因素，例如编译器、编译条件、操作系统等做出相应的改变，读者要知道着手研究的程序是用什么编译器编译，然后针对具体的编译器参考该编译器的说明。</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="学习变址寄存器-ESI和EDI寄存器与其用途"><a href="#学习变址寄存器-ESI和EDI寄存器与其用途" class="headerlink" title="学习变址寄存器-ESI和EDI寄存器与其用途"></a>学习变址寄存器-ESI和EDI寄存器与其用途</h3><blockquote>
+<p>变址寄存器:变址的含义是内存地址会变动的，也就是说变址寄存器中存放变动的内存地址。</p>
+</blockquote>
+<ol>
+<li>ESI：ESI称为源变址寄存器，通常存放要处理的数据的内存地址。</li>
+<li>EDI：EDI称为目的变址寄存器，通常存放处理后的数据的内存地址。<blockquote>
+<p>ESI和EDI常用来配合使用完成数据的赋值操作，下面是一个ESI和EDI配合使用的例子。</p>
+<blockquote>
+<p>Rep movs dword ptr [edi],dword ptr [esi]<br>上面的指令把ESI所指向的内存地址中的内容复制到EDI所指向的内存中，数据的长度在ECX寄存器中指定。</p>
+</blockquote>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h3 id="学习指针寄存器-EBP和ESP寄存器与其用途"><a href="#学习指针寄存器-EBP和ESP寄存器与其用途" class="headerlink" title="学习指针寄存器-EBP和ESP寄存器与其用途"></a>学习指针寄存器-EBP和ESP寄存器与其用途</h3><blockquote>
+<p>指针寄存器:80386的指针寄存器有基址寄存器EBP，堆栈指针寄存器ESP和指令指针寄存器EIP。只需要了解基址寄存器EBP和堆栈指针寄存器ESP即可，指令指针寄存器EIP总是指向下一条要执行的指令的地址，一般情况下无需修改EIP。</p>
+</blockquote>
+<h4 id="EBP和ESP寄存器"><a href="#EBP和ESP寄存器" class="headerlink" title="EBP和ESP寄存器"></a>EBP和ESP寄存器</h4><ol>
+<li>EBP：基址寄存器，可作为通用寄存器用于存放操作数，常用来代替堆栈指针访问堆栈中的数据。</li>
+<li>ESP:堆栈指针寄存器，不可作为通用寄存器使用，ESP存放当前堆栈栈顶的地址，一般情况下，ESP和EBP联合使用来访问函数中的参数和局部变量。</li>
+</ol>
+<h4 id="EBP和ESP寄存器的用途："><a href="#EBP和ESP寄存器的用途：" class="headerlink" title="EBP和ESP寄存器的用途："></a>EBP和ESP寄存器的用途：</h4><p>EBP和ESP常配合使用完成堆栈的访问，下面是一段常见的堆栈访问指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Push ebp</span><br><span class="line"></span><br><span class="line">Mov ebp,esp</span><br><span class="line"></span><br><span class="line">Sub esp,78</span><br><span class="line"></span><br><span class="line">Push esi</span><br><span class="line"></span><br><span class="line">Push edi</span><br><span class="line"></span><br><span class="line">Cmp dword ptr [ebp+8],0</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习标志寄存器-EFLAGS寄存器与其用途"><a href="#学习标志寄存器-EFLAGS寄存器与其用途" class="headerlink" title="学习标志寄存器-EFLAGS寄存器与其用途"></a>学习标志寄存器-EFLAGS寄存器与其用途</h3><blockquote>
+<p>EFLAGS一共有32位，是实现条件判断和逻辑判断的一种机制，在汇编语言中一般不直接访问EFLAGS寄存器，而是通过指令的操作隐含访问EFLAGS寄存器，</p>
+</blockquote>
+<ul>
+<li><p>OF（Overflow Flag）:溢出标志，溢出时为1，否则置0。</p>
+</li>
+<li><p>DF （Direction Flag）:方向标志，在串处理指令中控制信息的方向。</p>
+</li>
+<li><p>IF (Interrupt Flag) :中断标志</p>
+</li>
+<li><p>AF (Auxiliary carry Flag) :辅助进位标志，有进位时置1，否则置0。</p>
+</li>
+<li><p>ZF (Zero Flag) :零标志，运算结果为0时ZF位位置1，否则置0。</p>
+</li>
+<li><p>SF (Sign Flag):符号标志，结果为负时置1，否则置0。</p>
+</li>
+<li><p>CF (Carry Flag): 进位标志，进位时置1，否则置0。</p>
+</li>
+<li><p>PF (Parity Flag): 奇偶标志。结果操作数中1的个数为偶数时置1，否则置0。</p>
+</li>
+</ul>
+<hr>
+<h3 id="学习6种灵活的寻址方式与其作用"><a href="#学习6种灵活的寻址方式与其作用" class="headerlink" title="学习6种灵活的寻址方式与其作用"></a>学习6种灵活的寻址方式与其作用</h3><ul>
+<li>立即寻址<blockquote>
+<p>Mov eax,56H</p>
+<blockquote>
+<p>作用：通常用于赋值。</p>
+</blockquote>
+</blockquote>
+</li>
+<li>直接寻址<blockquote>
+<p>Mov eax,[12558878H]</p>
+<blockquote>
+<p>作用：通常用于处理变量。</p>
+</blockquote>
+</blockquote>
+</li>
+<li>寄存器寻址<blockquote>
+<p>Mov eax,[edi]</p>
+<blockquote>
+<p>作用：地址在寄存器中。</p>
+</blockquote>
+</blockquote>
+</li>
+<li>寄存器相对寻址<blockquote>
+<p>Mov EAX,[EDI+32H]</p>
+<blockquote>
+<p>作用：常用于访问数组和结构。</p>
+</blockquote>
+</blockquote>
+</li>
+<li>基址加变址寻址<blockquote>
+<p>Mov EAX,[EBP+ESI]</p>
+<blockquote>
+<p>作用：常用于访问数组</p>
+</blockquote>
+</blockquote>
+</li>
+<li>相对基址加变址寻址。<blockquote>
+<p>MOV EAX,[EBX+EDI-10H]</p>
+<blockquote>
+<p>作用：常用于访问结构。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="揭秘高级语言中的数据结构和80386寻址方式的关系"><a href="#揭秘高级语言中的数据结构和80386寻址方式的关系" class="headerlink" title="揭秘高级语言中的数据结构和80386寻址方式的关系"></a>揭秘高级语言中的数据结构和80386寻址方式的关系</h3><p><img src="/2019/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/D:%5CHexo%5Csource%5Cimage%5C%E5%9B%BE%E7%89%872.png" alt="avatar"></p>
+<hr>
+<h3 id="学习80386指令-Intel格式和AT-amp-T格式的指令格式。"><a href="#学习80386指令-Intel格式和AT-amp-T格式的指令格式。" class="headerlink" title="学习80386指令-Intel格式和AT&amp;T格式的指令格式。"></a>学习80386指令-Intel格式和AT&amp;T格式的指令格式。</h3><blockquote>
+<p>编写IA-32架构的汇编语言常见有两种格式，一种是Intel格式，另一种是AT&amp;T格式。</p>
+</blockquote>
+<ul>
+<li>Intel 格式的指令格式<blockquote>
+<p>指令名称  目标操作数DST，源操作数SRC</p>
+<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>eax,[edx]</span><a href="//将内存地址为EDX的数据放入EAX寄存器" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Xchg eax,edi   &#x2F;&#x2F;交换EAX和EDI寄存器的值	  </span><br><span class="line">Add eax,ebx    &#x2F;&#x2F; 将EAX和EBX相加，结构放回EAX中</span><br><span class="line">Shl eax,4      &#x2F;&#x2F;将EAX逻辑左移4位。</span><br></pre></td></tr></table></figure></li>
+<li>AT&amp;T格式的指令格式<blockquote>
+<p>指令名称 源操作数SRC，目标操作数DST</p>
+<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><figcaption><span>(%EDX),%EAX</span><a href="//将内存地址为EDX的数据放入EAX寄存器" target="_blank" rel="noopener">link</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XCHG %EDI,%EAX    &#x2F;&#x2F;交换EAX和EDI寄存器的值</span><br><span class="line">ADD %EBX,%EAX    &#x2F;&#x2F;将EAX和EBX相加，结构放回EAX中</span><br><span class="line">SHL $4,%EAX        &#x2F;&#x2F;将EAX逻辑左移4位。</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>本教程中讲解的汇编语言统一采用Intel 格式的汇编格式。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="学习数据传送"><a href="#学习数据传送" class="headerlink" title="学习数据传送"></a>学习数据传送</h3><blockquote>
+<p>80386的数据传送指令是为了实现CPU和内存、输入/输出端口之间的数据传送。</p>
+</blockquote>
+<h4 id="MOV指令"><a href="#MOV指令" class="headerlink" title="MOV指令"></a>MOV指令</h4><blockquote>
+<ul>
+<li>MOV:称为数值传送指令，格式是“MOV DST,SRC”。</li>
+<li>MOV指令将源操作数SRC传送到目的操作数DST中，</li>
+<li>传送的数据格式可以是8字节、16字节和32字节。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MOV EAX,56  &#x2F;&#x2F;将56H立即数传送到EAX寄存器</span><br><span class="line">MOV ESI,DWROD PTR [EAX*2+1] &#x2F;&#x2F;将内存地址为EAX*2+1处的4字节数据传送到ESI寄存器。</span><br><span class="line">MOV AH,BYTE PTR [ESI*2+EAX]  &#x2F;&#x2F;将内存地址为ESI*2+EAX处的8位数据传送到AH寄存器。</span><br><span class="line">MOV DWORD PTR [ESP+36],EBX  &#x2F;&#x2F;将EBX寄存器的值以4字节传送到堆栈地址为ESP+36所指向的地方。</span><br></pre></td></tr></table></figure>
+<h4 id="XCHG指令"><a href="#XCHG指令" class="headerlink" title="XCHG指令"></a>XCHG指令</h4><blockquote>
+<ul>
+<li>XCHG称为交换指令，XCHG实现寄存器间和内存间的数据交换。</li>
+<li>格式是“XCHG DST,SRC”。XCHG指令交换SRC和DST之间的数据，</li>
+<li>交换的数据可以是8字节、16字节和32字节，其中SRC和DST必须格式相同。<blockquote>
+<p>实例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">XCHG EAX,EDX   &#x2F;&#x2F;将EDX寄存器的值和EAX寄存器的值交换</span><br><span class="line">XCHG [ESP-55],EDI &#x2F;&#x2F;将EDI寄存器的值和堆栈地址为[esp-55]处的值交换。</span><br><span class="line">XCHG BH,BL      &#x2F;&#x2F;将BL寄存器和BH寄存器的值交换。</span><br></pre></td></tr></table></figure>
+<h4 id="PUSH和POP指令"><a href="#PUSH和POP指令" class="headerlink" title="PUSH和POP指令"></a>PUSH和POP指令</h4><blockquote>
+<ul>
+<li>PUSH和POP指令称为压入堆栈指令和弹出堆栈指令，格式是“PUSH SRC(源操作数)”和“POP DST（目的操作数）”。</li>
+<li>PUSH指令和POP指令是匹配出现的，上面的代码有多少个PUSH下面的代码就有多少个POP，否则堆栈就会不平衡。</li>
+<li>PUSH指令将源操作数SRC压入堆栈，同时ESP-4，而POP恰恰相反，POP指令从堆栈的顶部弹出4字节的数值然后放入DST。在32位的Windows操作系统上，PUSH和POP指令的操作是以4字节为单位的。</li>
+<li>PUSH和POP指令常用于向函数传递参数。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PUSH EAX &#x2F;&#x2F;将EAX寄存器的值以4字节压入堆栈，同时ESP-4</span><br><span class="line">PUSH DWORD PTR [12FF8589] &#x2F;&#x2F;将内存地址为12FF8589所指向的值以4字节压入堆栈，同时ESP-4</span><br><span class="line">POP DWORD PTR [12FF8589] &#x2F;&#x2F;将堆栈顶部的4字节弹出到内存地址为12FF8589所指地方，同时ESP+4</span><br><span class="line">POP EAX  &#x2F;&#x2F;将堆栈顶部的4字节弹出到EAX寄存器，同时ESP+4</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习地址传送指令-LEA效果"><a href="#学习地址传送指令-LEA效果" class="headerlink" title="学习地址传送指令 LEA效果"></a>学习地址传送指令 LEA效果</h3><blockquote>
+<p>80x86有3条地址传送指令，分别是LEA，LDS和LES。其实LDS和LES指令和段寄存器有关，在32位的Windows操作系统上，一般的程序员都不需要管理段寄存器，所以相对而言，LDS和LES寄存器使用得比较少，一般情况下常见的只有LEA指令。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>LEA：称为地址传送指令，格式是“LEA DST,ADDR”。</li>
+<li>LEA指令将ADDR地址加载到DST，其中ADDR可以是内存，也可以是寄存器，而DST必须是一个通用寄存器。</li>
+<li>LEA指令相当于C语言中的“&amp;”操作符，需要注意的是LEA和MOV是不同的，前者传送的是地址，后者传送的是操作数。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LEA EAX,[12345678]</span><br><span class="line">MOV EAX,[12345678]</span><br><span class="line">&#x2F;&#x2F;指令执行后EAX寄存器的值为12345678H，而MOV EAX,[12345678] 指令执行后EAX寄存器的值为内存地址12345678指向的那个数值。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意LEA指令可用于算法运算。<blockquote>
+<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LEA ECX,[ECX+EAX*4]  &#x2F;&#x2F;ECX&#x3D;ECX+EAX*4</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="学习算数运算指令的效果"><a href="#学习算数运算指令的效果" class="headerlink" title="学习算数运算指令的效果"></a>学习算数运算指令的效果</h3><h4 id="ADD加法指令"><a href="#ADD加法指令" class="headerlink" title="ADD加法指令"></a>ADD加法指令</h4><blockquote>
+<ul>
+<li>格式是“add OPER1,OPER2”。（操作数（operand)）</li>
+<li>ADD指令将OPER1+OPER2结果存放在OPER1中。<blockquote>
+<p>实例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">ADD EAX,ESI &#x2F;&#x2F;将EAX寄存器的值加上ESI寄存器的值，得出的结果保存在EAX寄存器中。</span><br><span class="line">ADD EBX,DWORD PTR [12345678] &#x2F;&#x2F;将EBX寄存器的值加上内存地址为12345678所指的4字节值，得出的结构保存在EBX寄存器中</span><br><span class="line">&#x2F;&#x2F;DWORD PTR的意思是显示说明按多少字节来操作，DWORD是DOUBLE WORD的缩写，也就是两个WORD的意思。</span><br><span class="line">&#96;&#96;&#96;   </span><br><span class="line">&gt;&gt;不同的平台和编译器中，DWORD占用的字节数不同，在32位的Windows中一个WORD占用16字节空间，DWORD占用32字节。</span><br><span class="line">&gt;在汇编语言中常用的还有WORD PTR和BYTE PTR，表示的意思分别是按WORD来操作和按BYTE来操作。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### SUB减法指令</span><br><span class="line">&gt;* SUB 指令将OPER1-OPER2结果存放在OPER1中。</span><br><span class="line">&gt;&gt;示例代码：</span><br></pre></td></tr></table></figure>
+<p>SUB ECX,4H  //将ECX寄存器的值减去4H，得出的结果保存在EAX寄存器中。<br>SUB BYTE PTR[EAX],CH //将内存地址为EAX所指向的数据按字节为单位和CH寄存器相减，得出的结果按字节为单位保存在EAX所指向的地方。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#### INC自加指令</span><br><span class="line">&gt;* INC----&gt;increase 1：加1指令</span><br><span class="line">&gt;* 功能：目标操作数+1</span><br><span class="line">&gt;* INC指令只有1个操作数，它将指定的操作数的内容加1，再将结果送回到该操作数。INC指令将影响SF,AF,ZF,PF,OF标志位，但是不影响CF标志位(进位标志位)。</span><br><span class="line">&gt;* INC指令的操作数的类型可以是通用寄存器或存储单元，但不可以是段寄存器。字或字节操作均可。</span><br><span class="line">#### DEC自减指令</span><br><span class="line">&gt;* DEC----&gt;decrease 1:减一指令</span><br><span class="line">&gt;* 功能：目标操作数-1</span><br><span class="line">&gt;* INC指令只有1个操作数，它将指定的操作数的内容减1，再将结果送回到该操作</span><br><span class="line">#### CMP比较指令</span><br><span class="line">&gt;* CMP称为比较指令，格式是“CMP OPER1,OPER2”。</span><br><span class="line">&gt;* CMP指令将OPER1减去OPER2，得出的结果不保存，只是相应地设置寄存器EFLAGS的CF、PF、ZF、AF、SF和OF。</span><br><span class="line">&gt;* 可以通过测试寄存器EFLAGS相关的标志的值得知CMP指令执行后的结果。</span><br><span class="line">&gt;&gt; 示例代码：</span><br></pre></td></tr></table></figure>
+<p>CMP EAX,56H  //将EAX寄存器的值减去56H，得出的结果不保存，并且设置寄存器EFLAGS相关的标志位。<br>CMP EDX,DWORD PTR [ECX+2] //将EDX寄存器的值以DWORD为单位减去内存地址为ECX+2所指向的数据，得出的结果不保存，并且设置寄存器EFLAGS相关的标志位。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#### NEG取补指令</span><br><span class="line">&gt;* NEG:称为取补指令，格式是“NEG OPER”。</span><br><span class="line">&gt;* NEG指令将OPER操作数取反，简而言之就是将零减去OPER操作数，得出的结果保存在OPER自身中。</span><br><span class="line">&gt;* 在计算机的CPU中没有减法的机制，减法是用加法实现的，例如：100-55这个操作，CPU实际执行的是100+（-55），而-55相当于是求55的相反数，求相反数的时候NEG指令正好派上用场了。</span><br><span class="line">&gt;&gt; 示例代码：</span><br></pre></td></tr></table></figure>
+<p>NEG EAX //将EAX寄存器的值取反，得出的结果保存在EAX中<br>NEG WORD PTR [12345678] //将内存地址为12345678所指向的数据以WORD为单位取反，得出的结果以WORD为单位，保存在内存地址为12345678     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#### MUL无符号乘法指令</span><br><span class="line">&gt;* 格式是“MUL OPER”。</span><br><span class="line">&gt;* MUL指令隐含了一个参加运算的操作数EAX寄存器，MUL指令将EAX寄存器的值乘以OPER，得出的结果保存在EAX寄存器中。如果结果超过32位，则高32位使用EDX寄存器保存，EAX寄存器则保存低32位。</span><br><span class="line">&gt;&gt;示例代码：</span><br></pre></td></tr></table></figure>
+<p>MUL EDX //将EAX寄存器的值乘以EDX寄存器的值，得出的结果保存在EAX寄存器中。<br>MUL BYTE PTR [EDI] //将EAX寄存器的值乘以以BYTE为单位内存地址为EDI所指向的数据，得出的结果保存在EAX寄存器中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#### IMUL有符号乘法指令</span><br><span class="line">&gt;* 原理和操作可以参考MUL指令，IMUL和MUL的区别是IMUL将参与运算的操作数当成有符号数来处理。</span><br><span class="line">#### DIV除法指令</span><br><span class="line">&gt;* 格式是“DIV OPER”。</span><br><span class="line">&gt;* DIV 指令将64位（EDX和EAX）或32位（EAX）的值除以OPER，得出的商保存在EAX寄存器中，而余数则保存在EDX寄存器中，由OPER操作数决定按多少字节操作。</span><br><span class="line">&gt;&gt; 示例代码：</span><br></pre></td></tr></table></figure>
+<p>DIV ECX //将EAX寄存器的值按4字节为单位除以ECX寄存器的值，得出的结果商保存在EAX寄存器中，余数保存在EDX寄存器中。<br>DIV WORD PTR [ESP+36] //将EAX寄存器的值按WORD为单位除以堆栈地址为ESP+36所指向的数据<br>//得出的结果商保存在EAX寄存器中，余数保存在EDX寄存器中。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#### IDIV有符号除法指令</span><br><span class="line">&gt;* 原理和操作可以参考DIV指令，IDIV和DIV的区别是IDIV将参与运算的操作数当成有符号数来处理。</span><br><span class="line">&gt;&gt;实例代码：</span><br></pre></td></tr></table></figure>
+<p>mov eax,1000cwddiv ecx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; 1000(H)&#x2F;7&#x3D; 4096&#x2F;7 &#x3D;585.1</span><br><span class="line">&gt;&gt;&gt;CWD是汇编语言中的字扩展指令，它的功能是将一个字型变量扩展为双字型变量，即Change Word to Double word。</span><br><span class="line">****</span><br><span class="line">### 学习逻辑运算指令的效果</span><br><span class="line">#### OR或操作指令</span><br><span class="line">&gt;* 格式是“OR OPER1,OPER2”。OR指令将OPER1操作数和OPER2操作数进行或运算，得出的结果保存在OPER1中。</span><br><span class="line">&gt;* OR指令主要用于维持某个二进制的某些位的值不变，而另一些位设置为1的情况。把不需要改变的位用0进行或运算，把要设置为1的位用1进行或运算即可。</span><br><span class="line">&gt;&gt;实例代码：</span><br></pre></td></tr></table></figure>
+<p>OR EAX,80008000H  //将EAX寄存器和立即数80008000H进行或运算，实际上是将EAX寄存器的31位和15位置1<br>OR AH,BH  //将AH寄存器或BH寄存器进行或运算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">EAX&#x3D; 1C1EA4</span><br><span class="line">OR EAX,80008000H</span><br><span class="line">得到：eax&#x3D;801C9EA4</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AH&#x3D;1 BH&#x3D;2</span><br><span class="line">    1 二进制 0001</span><br><span class="line">Or  2 二进制 0010 </span><br><span class="line">             0011(也就是10进制3)</span><br><span class="line">因为第一位是1，第二位是0，而第二个数的第一位是0第二位是1</span><br><span class="line"></span><br><span class="line">根据 or计算原理.1 or 0&#x3D;1,0 or 0&#x3D;0,0 or 1&#x3D;1,1 or 1&#x3D;1</span><br><span class="line">的原理得到的就是0011</span><br></pre></td></tr></table></figure>
+<h4 id="AND与操作指令"><a href="#AND与操作指令" class="headerlink" title="AND与操作指令"></a>AND与操作指令</h4><blockquote>
+<ul>
+<li>格式是“AND OPER1,OPER2”。AND指令将OPER1操作数和OPER2操作数进行与运算，得出的结果保存在OPER1中。 </li>
+<li>AND指令主要用于维持某个二进制数的某些位的值不变，而另一些位设置为0的情况。把不需要改变的位用1进行与运算，把要设置为0的位用0进行与运算即可。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AND CH,80H &#x2F;&#x2F;将CH寄存器的值和80H进行与运算，实际上是将CH寄存器的第8位保存不变，其余位置0.</span><br><span class="line">AND DWORD PTR [EAX],80008000H &#x2F;&#x2F;将内存地址为EAX所指向的数据按DWORD为单位与80008000H与运算</span><br><span class="line">&#x2F;&#x2F;上是将内存地址为EAX指向的4字节数据的第31位和15位置保存不变，其余位置0.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AND CH,80H</span><br><span class="line">CH&#x3D;1  二进制 00000001</span><br><span class="line">80 二进制 10000000</span><br><span class="line">And           00000000</span><br><span class="line">根据 and计算原理 0 and 1 &#x3D;0 ,0 and 0&#x3D;0,1 and 1&#x3D;1的原理得到的就是00000000</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AND DWORD PTR [EAX],80008000H</span><br><span class="line">EAX&#x3D;001C1EA4</span><br><span class="line">001C1EC8   二进制_00000000000111000001111011001000</span><br><span class="line">080008000   二进制10000000000000001000000000000000</span><br><span class="line">      And         00000000000000000000000000000000  (十六进制就是00000000)</span><br><span class="line">根据 and计算原理 0 and 1 &#x3D;0 ,0 and 0&#x3D;0,1 and 1&#x3D;1的原理得到的就是00000000000000000000000000000000</span><br></pre></td></tr></table></figure>
+<h4 id="NOT取反指令"><a href="#NOT取反指令" class="headerlink" title="NOT取反指令"></a>NOT取反指令</h4><blockquote>
+<ul>
+<li>格式是“NOT OPER”。NOT 指令将OPER操作数取反。注意NOT和NEG不同，NOT指令是按位取反，NEG是求补，意即将0减去操作数。<blockquote>
+<p>例如：</p>
+<pre><code>15H的二进制为  0 0 0 1 0 1 0 1 B</code></pre><blockquote>
+<p>NEG  15H 的二进制为 1 1 1 0 1 0 1 1 B(NOT取反加一)</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>NOT  15H 的二进制为 1 1 1 0 1 0 1 0 B</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>根据 NOT计算原理 0 not 1, 1 not 0  得 1 1 1 0 1 0 1 0 </p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NOT ECX    &#x2F;&#x2F; ECX&#x3D;1  执行后就是用FFFFFFFF-1&#x3D;FFFFFFFE</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习逻辑运算指令的效果"><a href="#学习逻辑运算指令的效果" class="headerlink" title="学习逻辑运算指令的效果"></a>学习逻辑运算指令的效果</h3><h4 id="XOR异或操作指令"><a href="#XOR异或操作指令" class="headerlink" title="XOR异或操作指令"></a>XOR异或操作指令</h4><blockquote>
+<ul>
+<li>格式是“XOR OPER1,OPER2”。XOR指令将OPER1操作数和OPER2操作数进行异或运算，得出的结果保存在OPER1中。</li>
+<li>把不需要改变的位用0进行异或运算，把需要取反的位用1进行异或运算即可。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">XOR EAX,FFFF0000H &#x2F;&#x2F;将EAX寄存器的值和立即数FFFF0000H进行异或运算，实际上将EAX寄存器的值的高16位取反，低16位保存不变</span><br><span class="line">XOR AH,F0H  &#x2F;&#x2F;将AH寄存器的值和立即数F0F0H进行异或运算，实际上是将AH寄存器的值的第15位和7位取反，其余位保持不变。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">EAX&#x3D;001C1EA4</span><br><span class="line">001C1EA4_0000000000111000001111010100100</span><br><span class="line">FFFF0000 _11111111111111110000000000000000</span><br><span class="line">   Xor   _11111111111000110001111010100100 (十六进制:FFE31EA4)</span><br><span class="line">根据 XOR 计算原理：0 xor 0 &#x3D;0, 1 xor 1 &#x3D;0,1 xor 0 &#x3D;1 得到：FFE31EA4</span><br><span class="line"></span><br><span class="line">XOR AH,F0H</span><br><span class="line">AH&#x3D;50_01010000</span><br><span class="line">    F0_11110000</span><br><span class="line">XOR   10100000 （A0十六进制）</span><br><span class="line">根据 XOR 计算原理：0 xor 0 &#x3D;0, 1 xor 1 &#x3D;0,1 xor 0 &#x3D;1 得到：A0</span><br></pre></td></tr></table></figure>
+
+<h4 id="TEST测试指令"><a href="#TEST测试指令" class="headerlink" title="TEST测试指令"></a>TEST测试指令</h4><blockquote>
+<ul>
+<li>格式是“TEST OPER1,OPER2”。TEST指令将OPER1操作数和OPER2操作数进行与运算，不保存结果，只设置标志寄存器EFLAGS相应的标志位的值。</li>
+<li>TEST指令常用于测试一个二进制位的某些位是否为1，但不改变源操作数的情况。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">TEST EAX,F0000000H  &#x2F;&#x2F;将EAX寄存器的值和立即数F00000000H进行与运算</span><br><span class="line">&#x2F;&#x2F;实际上是测试EAX寄存器的第31、30、29、28位是否为1，并且设置标志寄存器EFLAGS相应的标志位的值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">TEST EAX,F0000000H</span><br><span class="line">EAX&#x3D;001C1EA4</span><br><span class="line">001C1EA4_ 000000000000000111000001111010100100</span><br><span class="line">F00000000_111100000000000000000000000000000000</span><br><span class="line">   And    000000000000000000000000000000000000</span><br><span class="line"></span><br><span class="line">根据 and计算原理 0 and 1 &#x3D;0 ,0 and 0&#x3D;0,1 and 1&#x3D;1的原理得到的就是 0</span><br><span class="line">相应标志位的值发生变化</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习普通移位指令的效果"><a href="#学习普通移位指令的效果" class="headerlink" title="学习普通移位指令的效果"></a>学习普通移位指令的效果</h3><blockquote>
+<p>80x86有4条普通移位指令和4条循环移位指令，它们都隐含地使用CF寄存器参与运算。</p>
+</blockquote>
+<h4 id="SAL算术左移指令、SAR算术右移指令、SHL逻辑左移指令和SHR逻辑右移指令。"><a href="#SAL算术左移指令、SAR算术右移指令、SHL逻辑左移指令和SHR逻辑右移指令。" class="headerlink" title="SAL算术左移指令、SAR算术右移指令、SHL逻辑左移指令和SHR逻辑右移指令。"></a>SAL算术左移指令、SAR算术右移指令、SHL逻辑左移指令和SHR逻辑右移指令。</h4><blockquote>
+<ul>
+<li>这4条普通移位指令的格式都是一样的：普通移位指令名称 OPER1,OPER2，其中OPER1可以是寄存器或内存，OPER2代表的是移位的位数。其中SAL指令和SHL指令指向结果是一样的。<blockquote>
+<ul>
+<li>对于有符号和无符号数而言，SAL算术左移指令和SHL逻辑左移指令每移动一位相当于乘以2.而SAR算术右移指令和SHR逻辑右移指令有点不同。</li>
+<li>对于有符号和无符号而言，SAR算术右移指令每移动一位相当于除以2,保留操作数符号，而SHR逻辑右移指令不管操作数是有符号数还是无符号数，每向右移动一位，左边都是用0填充。<br>示例代码：</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SAL EAX,2 &#x2F;&#x2F;将EAX寄存器的值向左移动2位，得出的结果保存在EAX寄存器中，相当于EAX&#x3D;EAX*4</span><br><span class="line">SAR DWORD PTR DS:[ESI],4 &#x2F;&#x2F;将内存地址为ESI所指向的数据按DWORD为单位右移4位，相当于将内存地址为ESI所指向的数据按DWORD为单位的数据除以2*2*2*2&#x3D;16(十进制) </span><br><span class="line">SHL DWORD PTR [EBP+2H],2 &#x2F;&#x2F;将堆栈地址为EBP+2H所指向的数据按DWORD为单位左移2位，相当于将内存地址为EBP+2H所指向的数据按DWORD为单位的数据乘以4.</span><br><span class="line">SHR EDI,4  &#x2F;&#x2F;将EDI寄存器的值逻辑右移ECX位。EDI值除以2*2*2*2&#x3D;16（十进制）</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习循环移位指令的效果"><a href="#学习循环移位指令的效果" class="headerlink" title="学习循环移位指令的效果"></a>学习循环移位指令的效果</h3><h4 id="ROL左循环移位指令、ROR右循环移位指令、RCL带进位左循环移位指令和RCR带进位右循环移位指令。"><a href="#ROL左循环移位指令、ROR右循环移位指令、RCL带进位左循环移位指令和RCR带进位右循环移位指令。" class="headerlink" title="ROL左循环移位指令、ROR右循环移位指令、RCL带进位左循环移位指令和RCR带进位右循环移位指令。"></a>ROL左循环移位指令、ROR右循环移位指令、RCL带进位左循环移位指令和RCR带进位右循环移位指令。</h4><blockquote>
+<ul>
+<li>这4条循环移位指令的格式都是一样的：循环移位指令名称 OPER1,OPER2，其中OPER1可以是寄存器或内存，OPER2要么是CL寄存器要么是1，代表移动的次数，如果要移的次数多于1次，则需要把移位次数存放在CL寄存器中。</li>
+<li>ROL、ROR和RCL、RCR的区别是前者没有将标志寄存器EFLAGS的CF进位标志包含参与循环移位，后者则把CF进位标志包含参与循环移位。<blockquote>
+<blockquote>
+<p>循环移位的结果是保存到CF中还是继续参与循环</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">ROL AL,1   &#x2F;&#x2F;将EAX寄存器的值向左移动一位，被移出的位送到CF，同时将被移出的位放到最低位。</span><br><span class="line">ROR EAX,CL  &#x2F;&#x2F;将EAX寄存器的值向右移动CL位，被移出的位送到CF，同时将被移出的位放到最高位。</span><br><span class="line">RCL EAX,1  &#x2F;&#x2F;将EAX寄存器的值向左移动1位，被移出位送到CF，同时将CF之前的值放到最低位。</span><br><span class="line">RCR EAX,CL  &#x2F;&#x2F;将EAX寄存器的值向右移动CL位，被移出位送到CF，同时将CF之前的值放到最高位。</span><br><span class="line"></span><br><span class="line">ROL AL,1</span><br><span class="line">ROR EAX,CL</span><br><span class="line">把82H转成二进制数10000010(B)</span><br><span class="line">循环左移1位后变成：00000101(B)，换算成十六进制数便是05(H)</span><br><span class="line">循环右移1位后变成：01000001(B)，换算成十六进制数便是41(H)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">RCL AL,1</span><br><span class="line">RCR AL,CL</span><br><span class="line">首先把82H转换成二进制数10000010B</span><br><span class="line">带进位循环左移1位后变成：00000100B，CF&#x3D;1换算成十六进制数便是04H</span><br><span class="line">带进位循环右移1位后变成：11000001B，CF&#x3D;0 换算成十六进制数便是C1H</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习条件转移指令的效果"><a href="#学习条件转移指令的效果" class="headerlink" title="学习条件转移指令的效果"></a>学习条件转移指令的效果</h3><h4 id="无条件转移指令JMP"><a href="#无条件转移指令JMP" class="headerlink" title="无条件转移指令JMP"></a>无条件转移指令JMP</h4><blockquote>
+<ul>
+<li>JMP指令格式是：JMP OPER,其中OPER是目的地址。<blockquote>
+<p>示例代码：</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JMP EAX &#x2F;&#x2F;跳转到EAX寄存器指示的4字节地址。</span><br><span class="line">JMP DWORD PTR DS:[ESI+2]  &#x2F;&#x2F;跳转到内存地址为ESI+2指示的2字节地址。</span><br></pre></td></tr></table></figure>
+<h4 id="条件转移指令"><a href="#条件转移指令" class="headerlink" title="条件转移指令"></a>条件转移指令</h4><blockquote>
+<p>汇编的条件转移指令非常多，通常可以分为3大部分：无符号数的条件转移指令、有符号数的条件转移指令和算术条件转移指令。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>条件转移指令格式是：条件转移指令名称 OPER，其中OPER是目的地址。</li>
+<li>无符号数的条件转移指令名称、转移条件、转移说明如表1-2表示。<br>指令名称|指令条件|指令说明</li>
+</ul>
+<p>-|-|-|<br>JA/JNBE|CF=0且ZF=0|结果低于等于转移，或者高于转移|<br>JAE/JNB|CF=0|结果高于转移|<br>JB/JNAE|CF=1|结果低于转移|<br>JBE/JNA|CF=1|结果低于等于转移|</p>
+<ul>
+<li>有符号数的条件转移指令：<br>指令名称|指令条件|指令说明</li>
+</ul>
+<p>-|-|-|<br>JG/JNLE|ZF=0 且SF=OF|大于转移<br>JGE/JNL|SF=OF|大于等于转移<br>JL/JNGE|SF≠OF|小于转移</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>算术条件转移指令名称、转移条件、转移说明如表1-3所示<br>指令名称|指令条件|指令说明</li>
+</ul>
+<p>-|-|-|<br>JZ/JE|ZF=1|等于0转移，或者相等转移<br>JNZ/JNE|ZF=0|不等于0转移，或者不相等转移</p>
+</blockquote>
+<hr>
+<h3 id="学习函数-子程序-调用指令-CALL-RET效果"><a href="#学习函数-子程序-调用指令-CALL-RET效果" class="headerlink" title="学习函数(子程序)调用指令 CALL RET效果"></a>学习函数(子程序)调用指令 CALL RET效果</h3><blockquote>
+<ul>
+<li>在汇编语言中，使用CALL指令和RET指令或者CALL指令和ADD ESP,OPER指令实现函数的调用与函数返回。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>CALL指令的格式是：CALL OPER，其中OPER是函数地址（子程序地址）</p>
+<blockquote>
+<p>CALL指令首先将ESP堆栈指针寄存器的值减4，然后将EIP程序指令计数器的值压入堆栈，最后计算函数地址，将当前EIP程序指令计数器的值设置为函数地址。</p>
+<blockquote>
+<p>例如：调用下面的C语言函数，计算机会执行如下操作：</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PUSH a[i]</span><br><span class="line">Print(&quot;%d&quot;,a[i]) :  PUSH OFFSET String &quot;%d&quot;</span><br><span class="line">CALL printAdd esp,8</span><br></pre></td></tr></table></figure>
+<blockquote>
+<blockquote>
+<p>在高级语言中调用函数时不需要编程人员管理堆栈和恢复函数调用前的环境，因为高级语言的编译器在编译源代码的时候已经做好了。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li>在汇编语言中，编程人员使用CALL调用完函数后需要使用RET指令或ADD ESP指令恢复函数调用前的坏境，以便调用完函数后程序能继续正常执行。<br>RET函数返回指令的格式是：RET OPER，其中OPER是需要从堆栈中弹出的字节数。<blockquote>
+<p>RET指令首先将堆栈中弹出4字节数据到EIP，然后ESP=ESP+2，最后根据OPER的值修改ESP堆栈指针的值ESP=ESP+OPER。<br>对于遵从Cdecl调用约定（后面会讲到）的那些函数而言，函数调用完后不是使用RET指令，而是由调用者使用ADD ESP,OPER从堆栈中弹出OPER字节数据来清理堆栈。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>如何判断CALL有多少个参数？<blockquote>
+<ol>
+<li>看CALL前面的有几个PUSH，假设有3个，就是有3个参数</li>
+<li>进入CALL，看CALL尾部retn指令 是几，假设是：retn 4 说明该CALL有1个参数，假设retn 0c  说明有3个参数，0c(十六进制)=12(10进制)，之所以4为一个参数，是因为1个PUSH 占用4字节。</li>
+</ol>
+</blockquote>
+</li>
+<li>如何平衡堆栈？<blockquote>
+<p>根据上面的方法可以判断出CALL有几个参数，<br>平衡堆栈就是用add esp,参数个数<em>4再转换成16进制<br>假设：有5个参数，5</em>4=20(十进制) =转换成十六进制（14） 也就是： add esp,14 </p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Push 1</span><br><span class="line">Push 2</span><br><span class="line">Push 3</span><br><span class="line">Push 4</span><br><span class="line">Push 5</span><br><span class="line">Call 00401000</span><br><span class="line">Add esp,14</span><br><span class="line">用于：CALL调用后能达到效果，但是游戏奔溃。</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="学习函数（子程序）调用约定-3种常用的调用约定"><a href="#学习函数（子程序）调用约定-3种常用的调用约定" class="headerlink" title="学习函数（子程序）调用约定-3种常用的调用约定"></a>学习函数（子程序）调用约定-3种常用的调用约定</h3><ol>
+<li>Pascal调用约定:参数从左到右传递，由被调用的函数清理堆栈</li>
+<li>Cdecl调用约定：参数从右到左传递，由调用函数清理堆栈（C方式）</li>
+<li>StdCall调用约定  参数从右到左传递，由被调用的函数清理堆栈（WINAPI方式）<blockquote>
+<ul>
+<li>在Windows中，无论调用哪种方式，其返回值保存在EAX中</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+
+    </section>
+    <section class="extra">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" rel="tag">汇编语言</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/04/Ollydbg%E7%9A%84%E5%AD%A6%E4%B9%A0/"><i class="iconfont iconleft"></i>Ollydbg的学习</a>
+  
+  
+</nav>
+
+    </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+  <div class="fab fab-plus">
+  <i class="iconfont iconplus"></i>
+</div>
+<div class="fab fab-up">
+  <i class="iconfont iconcaret-up"></i>
+</div>
+<div class="fab fab-menu">
+  <i class="iconfont iconmenu"></i>
+</div>
+</body>
+
+
+<script src="/lib/jquery/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+</html>

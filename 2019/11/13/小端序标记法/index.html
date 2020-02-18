@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>小端序标记法 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  
+  <meta name="description" content="基本存储单元：字节（8位）32位=4 byte=2 w..."> 
+  
+  <meta name="author" content="John Doe"> 
+  <link rel="shortcut icon" href="/null">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {}
+    CONFIG = {
+      fancybox: ,
+      pjax: ,
+      highlight: ,
+      donate_alipay: '',
+      donate_wechat: '',
+      gitalk: {
+        enable: ,
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+      },
+      motto: {
+        api: '',
+        default: ''
+      }
+    }
+  </script>
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="lock-screen">
+  <div class="loading">
+  <div class="loading-wrap">
+    <div class="loading-spinner">
+      <div class="loading-bounce1"></div>
+      <div class="loading-bounce2"></div>
+    </div>
+  </div>
+</div>
+  <header>
+  <nav class="menu">
+  <i class="iconfont iconclose-circle menu-close"></i>
+  <ul class="menu-content">
+    
+  </ul>
+  <div class="menu-copyright"></div>
+</nav>
+</header>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img src="/null" draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">小端序标记法</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-13</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>369</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h4 id="基本存储单元：字节（8位）"><a href="#基本存储单元：字节（8位）" class="headerlink" title="基本存储单元：字节（8位）"></a>基本存储单元：字节（8位）</h4><p>32位=4 byte=2 word = 1 dword</p>
+<h4 id="字节序：字节顺序"><a href="#字节序：字节顺序" class="headerlink" title="字节序：字节顺序"></a>字节序：字节顺序</h4><ul>
+<li>小端字节序：内存低位地址存放低位字节数据——WindowsCPU</li>
+<li>大端字节序：内存高位地址存放低位字节数据——UnixCPU，网络传输<blockquote>
+<p>注意：地址的高低顺序</p>
+</blockquote>
+<h3 id="编程判断主机字节序"><a href="#编程判断主机字节序" class="headerlink" title="编程判断主机字节序"></a>编程判断主机字节序</h3><h4 id="字节序相关函数："><a href="#字节序相关函数：" class="headerlink" title="字节序相关函数："></a>字节序相关函数：</h4></li>
+<li>TCP/IP协议以网络字节序（大端字节序）在网络传输数据</li>
+<li>主机字节序：大端字节序，小端字节序</li>
+<li><em>相关函数：*</em></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">主机字节序转网络字节序：</span><br><span class="line">u_short htons(u_short hostshort)</span><br><span class="line">u_long htonl(u_long hostlong)</span><br><span class="line"></span><br><span class="line">网络字节序转主机字节序：</span><br><span class="line">u_short ntohs(u_short netshort)</span><br><span class="line">u_long ntohl(u_long netlong)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <section class="extra">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%80%86%E5%90%91/" rel="tag">逆向</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/17/%E6%93%8D%E4%BD%9C%E7%AC%A6/"><i class="iconfont iconleft"></i>操作符</a>
+  
+  
+    <a href="/2019/11/11/IDC%E8%84%9A%E6%9C%AC/">IDC脚本<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+  <div class="fab fab-plus">
+  <i class="iconfont iconplus"></i>
+</div>
+<div class="fab fab-up">
+  <i class="iconfont iconcaret-up"></i>
+</div>
+<div class="fab fab-menu">
+  <i class="iconfont iconmenu"></i>
+</div>
+</body>
+
+
+<script src="/lib/jquery/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+</html>

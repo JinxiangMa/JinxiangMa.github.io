@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ollydbg的学习 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  
+  <meta name="description" content="动态分析技术——应用层的32位反汇编逆向调试工具工具
+..."> 
+  
+  <meta name="author" content="John Doe"> 
+  <link rel="shortcut icon" href="/null">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {}
+    CONFIG = {
+      fancybox: ,
+      pjax: ,
+      highlight: ,
+      donate_alipay: '',
+      donate_wechat: '',
+      gitalk: {
+        enable: ,
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+      },
+      motto: {
+        api: '',
+        default: ''
+      }
+    }
+  </script>
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="lock-screen">
+  <div class="loading">
+  <div class="loading-wrap">
+    <div class="loading-spinner">
+      <div class="loading-bounce1"></div>
+      <div class="loading-bounce2"></div>
+    </div>
+  </div>
+</div>
+  <header>
+  <nav class="menu">
+  <i class="iconfont iconclose-circle menu-close"></i>
+  <ul class="menu-content">
+    
+  </ul>
+  <div class="menu-copyright"></div>
+</nav>
+</header>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img src="/null" draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">Ollydbg的学习</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-04</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>632</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h2 id="动态分析技术——应用层的32位反汇编逆向调试工具"><a href="#动态分析技术——应用层的32位反汇编逆向调试工具" class="headerlink" title="动态分析技术——应用层的32位反汇编逆向调试工具"></a>动态分析技术——应用层的32位反汇编逆向调试工具</h2><h4 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h4><ul>
+<li>分类：用户模式：Ollydbg  内核模式： SoftCE<blockquote>
+<p>调试，反调试，反反调试</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Ollydbg"><a href="#Ollydbg" class="headerlink" title="Ollydbg"></a>Ollydbg</h3><h4 id="1-加载程序的方法："><a href="#1-加载程序的方法：" class="headerlink" title="1.加载程序的方法："></a>1.加载程序的方法：</h4><ul>
+<li>利用CreateProcess创建进程<blockquote>
+<p>Ollydbg将接受到目标进程发生的调试事件，忽略对其子进程的调试事件。直接加载程序外，也可带参数（Arguments）</p>
+</blockquote>
+</li>
+<li>利用DebugActiveProcess函数附加<blockquote>
+<p>将调试器捆绑到一个正在运行的程序上（尽量用新打开的Ollydbg，增加成功率）</p>
+</blockquote>
+<h5 id="注意：对于隐藏进程，用IceSword工具获得进程pid，控制台带参数附加"><a href="#注意：对于隐藏进程，用IceSword工具获得进程pid，控制台带参数附加" class="headerlink" title="注意：对于隐藏进程，用IceSword工具获得进程pid，控制台带参数附加"></a>注意：对于隐藏进程，用IceSword工具获得进程pid，控制台带参数附加</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\ollydbg.exe -p pid值</span><br></pre></td></tr></table></figure>
+注：编译时优化选项不同，生成的汇编代码不同。<h4 id="加载目标文件调试时，要将Ollydbg中断在程序的入口点。"><a href="#加载目标文件调试时，要将Ollydbg中断在程序的入口点。" class="headerlink" title="加载目标文件调试时，要将Ollydbg中断在程序的入口点。"></a>加载目标文件调试时，要将Ollydbg中断在程序的入口点。</h4><blockquote>
+<p>设置”option”选项：‘Entry point of main module’—主模块的入口点</p>
+</blockquote>
+</li>
+<li>领空：在某一时刻，CPU的CE：EIP所指向的某代码段的所有者<h4 id="2-设置断点–F2"><a href="#2-设置断点–F2" class="headerlink" title="2.设置断点–F2"></a>2.设置断点–F2</h4></li>
+<li>断点设置的原理：将断点地址处的代码设置为INT 3指令</li>
+<li>断点保存在·UDD文件中</li>
+<li>断点设置在当前程序代码外，调试器会警告，可设置关闭。<h4 id="3-汇编代码中的变量定义"><a href="#3-汇编代码中的变量定义" class="headerlink" title="3.汇编代码中的变量定义"></a>3.汇编代码中的变量定义</h4>db——字节类型    ， dw——字类型   ，  dd——双字类型</li>
+</ul>
+<p>h结尾：16进制，b结尾：二进制</p>
+<h4 id="4-通过命令行改变窗口显示"><a href="#4-通过命令行改变窗口显示" class="headerlink" title="4.通过命令行改变窗口显示"></a>4.通过命令行改变窗口显示</h4><p>命令行输入“变量类型（db，dd，dw） address”数据窗口跳转到指定地址</p>
+
+    </section>
+    <section class="extra">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ollydbg/" rel="tag">Ollydbg</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/04/%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E4%B8%8EC%E8%AF%AD%E8%A8%80/"><i class="iconfont iconleft"></i>汇编指令与C语言</a>
+  
+  
+    <a href="/2019/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言的学习<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+  <div class="fab fab-plus">
+  <i class="iconfont iconplus"></i>
+</div>
+<div class="fab fab-up">
+  <i class="iconfont iconcaret-up"></i>
+</div>
+<div class="fab fab-menu">
+  <i class="iconfont iconmenu"></i>
+</div>
+</body>
+
+
+<script src="/lib/jquery/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+</html>

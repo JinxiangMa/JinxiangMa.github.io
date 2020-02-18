@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IDC脚本 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  
+  <meta name="description" content="类C的嵌入式语言，在特殊情况的控制下，自动化完成IDA..."> 
+  
+  <meta name="author" content="John Doe"> 
+  <link rel="shortcut icon" href="/null">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {}
+    CONFIG = {
+      fancybox: ,
+      pjax: ,
+      highlight: ,
+      donate_alipay: '',
+      donate_wechat: '',
+      gitalk: {
+        enable: ,
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+      },
+      motto: {
+        api: '',
+        default: ''
+      }
+    }
+  </script>
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="lock-screen">
+  <div class="loading">
+  <div class="loading-wrap">
+    <div class="loading-spinner">
+      <div class="loading-bounce1"></div>
+      <div class="loading-bounce2"></div>
+    </div>
+  </div>
+</div>
+  <header>
+  <nav class="menu">
+  <i class="iconfont iconclose-circle menu-close"></i>
+  <ul class="menu-content">
+    
+  </ul>
+  <div class="menu-copyright"></div>
+</nav>
+</header>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img src="/null" draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">IDC脚本</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-11</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1947</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <h5 id="类C的嵌入式语言，在特殊情况的控制下，自动化完成IDA重复工作。"><a href="#类C的嵌入式语言，在特殊情况的控制下，自动化完成IDA重复工作。" class="headerlink" title="类C的嵌入式语言，在特殊情况的控制下，自动化完成IDA重复工作。"></a>类C的嵌入式语言，在特殊情况的控制下，自动化完成IDA重复工作。</h5><h4 id="实例一：查看输入函数"><a href="#实例一：查看输入函数" class="headerlink" title="实例一：查看输入函数"></a>实例一：查看输入函数</h4><p>原理：通常，某些编译器给输入表所在区段生成的默认名字为.idata，仅为实验考虑。实际情况要考虑PE文件的结构特征。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Imports.idc 列出当前程序的输入函数</span><br><span class="line">#include &lt;idc.idc&gt;      &#x2F;&#x2F;所有的IDC脚本包含的语句</span><br><span class="line"></span><br><span class="line">static GetImportSeg()   &#x2F;&#x2F;函数声明不需要指定类型，且所有都为静态</span><br><span class="line">&#123;</span><br><span class="line">    auto ea, next, name;        </span><br><span class="line">    &#x2F;&#x2F;  局部变量类型：auto；全局变量类型：extern</span><br><span class="line">    ea &#x3D; FirstSeg();          &#x2F;&#x2F;访问第一个段</span><br><span class="line">    next &#x3D; ea;</span><br><span class="line">    while ( (next &#x3D; NextSeg(next)) !&#x3D; -1) &#123;</span><br><span class="line">        name &#x3D; SegName(next);</span><br><span class="line">        if ( substr( name, 0, 6 ) &#x3D;&#x3D; &quot;.idata&quot; ) break;</span><br><span class="line">   &#125;</span><br><span class="line">   return next;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">static main()</span><br><span class="line">&#123;</span><br><span class="line">    auto BytePtr, EndImports;</span><br><span class="line">    BytePtr &#x3D; SegStart( GetImportSeg() );</span><br><span class="line">    EndImports &#x3D; SegEnd( BytePtr );</span><br><span class="line">    Message(&quot; \n&quot; + &quot;Parsing Import Table...\n&quot;);</span><br><span class="line">    while ( BytePtr &lt; EndImports ) &#123;</span><br><span class="line">        if (LineA(BytePtr, 1) !&#x3D; &quot;&quot;) </span><br><span class="line">        Message(&quot;\n&quot; + &quot;____&quot; + LineA(BytePtr,1) + &quot;____&quot; + &quot;\n&quot;);</span><br><span class="line">        Message(Name(BytePtr) + &quot;\n&quot;);</span><br><span class="line">        BytePtr &#x3D; NextAddr(BytePtr);</span><br><span class="line">    &#125;</span><br><span class="line">    Message(&quot;\n&quot; + &quot;Import Table Parsing Complete\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">FirstSeg()</span><br><span class="line">　　访问程序中的第一个段。</span><br><span class="line"></span><br><span class="line">NextSeg()</span><br><span class="line">　　访问下一个段，如果没有就返回 BADADDR。</span><br><span class="line"></span><br><span class="line">SegByName( string SegmentName )</span><br><span class="line">　　通过段名字返回段基址，举个例子，如果调用.text 作为参数，就会返回程序中代码段的开始位置。</span><br><span class="line"></span><br><span class="line">SegEnd( long Address )</span><br><span class="line">　　通过段内的某个地址，获得段尾的地址。</span><br><span class="line"></span><br><span class="line">SegStart( long Address )</span><br><span class="line">　　通过段内的某个地址，获得段头的地址。</span><br><span class="line"></span><br><span class="line">SegName( long Address )</span><br><span class="line">　　通过段内的某个地址，获得段名。</span><br></pre></td></tr></table></figure>
+<p>参考书籍：《IDA Pro权威指南》</p>
+<h4 id="实例二：用IDC分析加密算法–encrypted-exe程序"><a href="#实例二：用IDC分析加密算法–encrypted-exe程序" class="headerlink" title="实例二：用IDC分析加密算法–encrypted.exe程序"></a>实例二：用IDC分析加密算法–encrypted.exe程序</h4><p>注意：对有疑问的地方IDA会用红色显示。<br>SMC技术：可执行文件中保存着加密数据，只有在执行时才会在某处用还原你代码解密。</p>
+<pre><code>//encrypted.idc
+//(c)  www.PEDIY.com 2000-2008
+
+#include &lt;idc.idc&gt;
+static decrypt(from, size, key ) {     //from加密起始地址 
+   auto i, x; 
+   for ( i=0; i &lt; size; i=i+1 ) { 
+      x = Byte(from);      //取得解密数据
+      x = (x^key);            //异或解密
+      PatchByte(from,x); //将数据还原
+      from = from + 1;
+   } 
+
+} </code></pre>
+    </section>
+    <section class="extra">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/IDA/" rel="tag">IDA</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/13/%E5%B0%8F%E7%AB%AF%E5%BA%8F%E6%A0%87%E8%AE%B0%E6%B3%95/"><i class="iconfont iconleft"></i>小端序标记法</a>
+  
+  
+    <a href="/2019/11/07/TraceMe%E8%A1%A5%E4%B8%81%E5%AE%9E%E9%AA%8C/">TraceMe.exe进行补丁（爆破）<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+  <div class="fab fab-plus">
+  <i class="iconfont iconplus"></i>
+</div>
+<div class="fab fab-up">
+  <i class="iconfont iconcaret-up"></i>
+</div>
+<div class="fab fab-menu">
+  <i class="iconfont iconmenu"></i>
+</div>
+</body>
+
+
+<script src="/lib/jquery/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+</html>

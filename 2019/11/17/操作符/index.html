@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>操作符 - Hexo</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate" />
+  
+  
+  <meta name="description" content="副作用：操作符改变操作数自身的值.System.out..."> 
+  
+  <meta name="author" content="John Doe"> 
+  <link rel="shortcut icon" href="/null">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+
+  
+
+  
+
+  
+
+  <script>
+    var CONFIG = window.CONFIG || {}
+    CONFIG = {
+      fancybox: ,
+      pjax: ,
+      highlight: ,
+      donate_alipay: '',
+      donate_wechat: '',
+      gitalk: {
+        enable: ,
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: '',
+        owner: '',
+        admin: ''
+      },
+      motto: {
+        api: '',
+        default: ''
+      }
+    }
+  </script>
+
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="lock-screen">
+  <div class="loading">
+  <div class="loading-wrap">
+    <div class="loading-spinner">
+      <div class="loading-bounce1"></div>
+      <div class="loading-bounce2"></div>
+    </div>
+  </div>
+</div>
+  <header>
+  <nav class="menu">
+  <i class="iconfont iconclose-circle menu-close"></i>
+  <ul class="menu-content">
+    
+  </ul>
+  <div class="menu-copyright"></div>
+</nav>
+</header>
+  <main id="main">
+  <div class="container" id="container">
+    <article class="article">
+  <section class="head">
+  <img src="/null" draggable="false">
+  <div class="head-mask">
+    <h1 class="head-title">操作符</h1>
+    <div class="head-info">
+      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-17</span
+        class="post-info-item">
+      
+      <span class="post-info-item"><i class="iconfont iconfont-size"></i>1147</span>
+    </div>
+  </div>
+</section>
+  <section class="main">
+    <section class="content">
+      <p>副作用：操作符改变操作数自身的值.<br>System.out.println()中的“+”表示：字符串连接——有类型转换的作用（非String的转换）</p>
+<h4 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h4><p>基本类型的赋值：直接复制<br>对象的赋值：复制引用。（指向相同的对象）</p>
+<blockquote>
+<p>当出现引用覆盖，不再被引用的对象被垃圾回收器自动清理—别名现象</p>
+</blockquote>
+<h4 id="方法调用中的别名问题："><a href="#方法调用中的别名问题：" class="headerlink" title="方法调用中的别名问题："></a>方法调用中的别名问题：</h4><p>传入方法的参数为对象，操作改变的方法之外的对象</p>
+<h4 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h4><p>创建Random类的对象</p>
+<blockquote>
+<p>未传递参数：将当前时间作为随机数生成器的种子<br>传递参数：提供种子（初始化值），特定种子产生相同的随机数序列<br>调用方法nextInt，nextFloat，nextDouble，nextLong使用不同类型的随机数，参数设置上限，下限为0。</p>
+</blockquote>
+<h4 id="关系操作符"><a href="#关系操作符" class="headerlink" title="关系操作符"></a>关系操作符</h4><p>=!,==可用于对象，比较对象的引用<br>比较对象的实际内容：equals（），不适应于基本类型（默认行为是比较引用）</p>
+<h4 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h4><p>与，或，非只可用于布尔值，<strong>不可将非布尔值当作布尔值在逻辑表达式中</strong><br><strong>短路</strong>：一旦能够明确表达式的值，剩余的表达式不再计算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import static net.mindview.util.Print.*;</span><br><span class="line">int i1 &#x3D; 0x2f; &#x2F;&#x2F; Hexadecimal (lowercase)</span><br><span class="line">print(&quot;i1: &quot; + Integer.toBinaryString(i1));   &#x2F;&#x2F;转二进制</span><br></pre></td></tr></table></figure>
+<h4 id="指数计数法："><a href="#指数计数法：" class="headerlink" title="指数计数法："></a>指数计数法：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float fn &#x3D;1e-43f     &#x2F;&#x2F;必须指定f，编译器通常将指数作为双精度数</span><br></pre></td></tr></table></figure>
+<h4 id="移位操作符"><a href="#移位操作符" class="headerlink" title="移位操作符"></a>移位操作符</h4><blockquote>
+<p>在用&gt;&gt;+进行short，byte类型运算时，先转化为int类型，然后移位截断，再将该值赋给原类型的变量，位数扩展（有符号扩展）</p>
+</blockquote>
+<h4 id="三元操作符"><a href="#三元操作符" class="headerlink" title="三元操作符"></a>三元操作符</h4><p>boolean_exp? value0:value1</p>
+<h4 id="while-x-y"><a href="#while-x-y" class="headerlink" title="while(x=y)"></a>while(x=y)</h4><blockquote>
+<p>Java不能将int类型的值转化成布尔值——抛出编译错误<br>当x，y都为布尔值，上式成立（合法表达式）</p>
+</blockquote>
+<h4 id="按位与，按位或和逻辑与，逻辑或不能代替"><a href="#按位与，按位或和逻辑与，逻辑或不能代替" class="headerlink" title="按位与，按位或和逻辑与，逻辑或不能代替"></a>按位与，按位或和逻辑与，逻辑或不能代替</h4><blockquote>
+<p>不允许随便把一种类型当作另一种类型来使用</p>
+</blockquote>
+<h4 id="类型转换操作符"><a href="#类型转换操作符" class="headerlink" title="类型转换操作符"></a>类型转换操作符</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int lng&#x3D;10;</span><br><span class="line">long lng&#x3D;(long)lng;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<h4 id="窄化转换："><a href="#窄化转换：" class="headerlink" title="窄化转换："></a>窄化转换：</h4><blockquote>
+<p>可能信息丢失——显式进行类型转换</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>截尾（默认）</li>
+<li>舍入：java.lang.Matth中的round（操作数）方法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int a&#x3D;Math.round(b);</span><br></pre></td></tr></table></figure>
+<h4 id="int类型结果的运算中含有的char，byte类型会自动转换成int类型"><a href="#int类型结果的运算中含有的char，byte类型会自动转换成int类型" class="headerlink" title="int类型结果的运算中含有的char，byte类型会自动转换成int类型"></a>int类型结果的运算中含有的char，byte类型会自动转换成int类型</h4><blockquote>
+<h4 id="扩展转换："><a href="#扩展转换：" class="headerlink" title="扩展转换："></a>扩展转换：</h4><blockquote>
+<p>不必显示</p>
+</blockquote>
+</blockquote>
+</li>
+<li>允许把任何基本类型转换为其他基本类型，<strong>布尔值除外</strong><h4 id="Java中没有sizeof（）"><a href="#Java中没有sizeof（）" class="headerlink" title="Java中没有sizeof（）"></a>Java中没有sizeof（）</h4></li>
+<li><em>所有数据类型在所有机器中的大小是相同的*</em></li>
+</ul>
+
+    </section>
+    <section class="extra">
+      
+      
+  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a></li></ul>
+
+      
+<nav class="nav">
+  
+    <a href="/2019/11/17/%E6%8E%A7%E5%88%B6%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B/"><i class="iconfont iconleft"></i>控制执行流程</a>
+  
+  
+    <a href="/2019/11/13/%E5%B0%8F%E7%AB%AF%E5%BA%8F%E6%A0%87%E8%AE%B0%E6%B3%95/">小端序标记法<i class="iconfont iconright"></i></a>
+  
+</nav>
+
+    </section>
+    
+  </section>
+</article>
+  </div>
+</main>
+  <footer class="footer">
+  <div class="footer-social">
+    
+  </div>
+  <div class="footer-copyright"></div>
+</footer>
+  <div class="fab fab-plus">
+  <i class="iconfont iconplus"></i>
+</div>
+<div class="fab fab-up">
+  <i class="iconfont iconcaret-up"></i>
+</div>
+<div class="fab fab-menu">
+  <i class="iconfont iconmenu"></i>
+</div>
+</body>
+
+
+<script src="/lib/jquery/jquery.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+</html>
