@@ -1,94 +1,218 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
   <title>汇编指令与C语言 - Hexo</title>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="google" content="notranslate" />
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   
-  
-  <meta name="description" content="#第一章：汇编指令与C语言##1.1上机建立第一个工程..."> 
-  
-  <meta name="author" content="John Doe"> 
-  <link rel="shortcut icon" href="/null">
-  
-<link rel="stylesheet" href="/css/style.css">
-
-
   
 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="#第一章：汇编指令与C语言##1.1上机建立第一个工程Windows底层代码基本都是用C语言写的，要创建.c文件   实例代码：   12345#include&quot;afx.h&quot;    &#x2F;&#x2F;有的VS版本不支持stdafx.h头文件int _tmain(int argc,_TCHAR* argv[])&amp;#123;	return 0;&amp;#125; 注意：VC必须处于">
+<meta property="og:type" content="article">
+<meta property="og:title" content="汇编指令与C语言">
+<meta property="og:url" content="http://yoursite.com/2019/11/04/%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E4%B8%8EC%E8%AF%AD%E8%A8%80/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#第一章：汇编指令与C语言##1.1上机建立第一个工程Windows底层代码基本都是用C语言写的，要创建.c文件   实例代码：   12345#include&quot;afx.h&quot;    &#x2F;&#x2F;有的VS版本不支持stdafx.h头文件int _tmain(int argc,_TCHAR* argv[])&amp;#123;	return 0;&amp;#125; 注意：VC必须处于">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-11-04T08:05:05.000Z">
+<meta property="article:modified_time" content="2019-11-11T04:02:31.367Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="-Windows编程 -汇编语言">
+<meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-
-  
-
-  <script>
-    var CONFIG = window.CONFIG || {}
-    CONFIG = {
-      fancybox: ,
-      pjax: ,
-      highlight: ,
-      donate_alipay: '',
-      donate_wechat: '',
-      gitalk: {
-        enable: ,
-        clientID: '',
-        clientSecret: '',
-        id: window.location.pathname,
-        repo: '',
-        owner: '',
-        admin: ''
-      },
-      motto: {
-        api: '',
-        default: ''
-      }
-    }
-  </script>
+  <!--<link rel="stylesheet" href="/css/style.css?v=1581995205906">-->
 
   
-
 <meta name="generator" content="Hexo 4.2.0"></head>
-<body class="lock-screen">
-  <div class="loading">
-  <div class="loading-wrap">
-    <div class="loading-spinner">
-      <div class="loading-bounce1"></div>
-      <div class="loading-bounce2"></div>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(/images/back.png#http://image.baidu.com/search/detail?ct=503316480&amp;z=0&amp;tn=baiduimagedetail&amp;ipn=d&amp;word=%E5%A4%B4%E5%83%8F&amp;step_word=&amp;ie=utf-8&amp;in=&amp;cl=2&amp;lm=-1&amp;st=-1&amp;hd=undefined&amp;latest=undefined&amp;copyright=undefined&amp;cs=2931642726,2250852866&amp;os=2287284932,3429297153&amp;simid=3395842058,245671389&amp;pn=49&amp;rn=1&amp;di=64130&amp;ln=3096&amp;fr=&amp;fmq=1461834053046_R&amp;fm=&amp;ic=0&amp;s=0&amp;se=&amp;sme=&amp;tab=0&amp;width=&amp;height=&amp;face=undefined&amp;is=0,0&amp;istype=2&amp;ist=&amp;jit=&amp;bdtype=0&amp;spn=0&amp;pi=0&amp;gsm=0&amp;objurl=http%3A%2F%2Fimg1.3lian.com%2Fgif%2Fmore%2F11%2F2012%2F03%2Fe260e9acb2ffdf71f2c260d90ff5100d.jpg&amp;rpstart=0&amp;rpnum=0&amp;adpicid=0&amp;force=undefined)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="John Doe" class="mdui-btn mdui-btn-icon"><img src="/images/avatar.png#https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png 网站 Logo" alt="John Doe"></a>
+       </div>
     </div>
   </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="John Doe">
+            <img src="/images/avatar.png#https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png 网站 Logo" alt="John Doe" alt="John Doe">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>15</div>
+        <div><span>Tags</span>9</div>
+        <div><span>Categories</span>5</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
 </div>
-  <header>
-  <nav class="menu">
-  <i class="iconfont iconclose-circle menu-close"></i>
-  <ul class="menu-content">
-    
-  </ul>
-  <div class="menu-copyright"></div>
-</nav>
-</header>
-  <main id="main">
-  <div class="container" id="container">
-    <article class="article">
-  <section class="head">
-  <img src="/null" draggable="false">
-  <div class="head-mask">
-    <h1 class="head-title">汇编指令与C语言</h1>
-    <div class="head-info">
-      <span class="post-info-item"><i class="iconfont iconcalendar"></i>2019-11-04</span
-        class="post-info-item">
-      
-      <span class="post-info-item"><i class="iconfont iconfont-size"></i>669</span>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Social</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/JinxiangMa/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Categories</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Java/">Java</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/Linux网络编程/">Linux网络编程</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/加密与解密/">加密与解密</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/汇编语言/">汇编语言</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/逆向工程核心原理/">逆向工程核心原理</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
     </div>
   </div>
-</section>
-  <section class="main">
-    <section class="content">
-      <p>#第一章：汇编指令与C语言<br>##1.1上机建立第一个工程<br>Windows底层代码基本都是用C语言写的，要创建.c文件</p>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Tag Cloud</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/Windows%E7%BC%96%E7%A8%8B-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">-Windows编程 -汇编语言</a> <a href="/tags/IDA/" style="font-size: 10px;">IDA</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Linux-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 10px;">Linux -  网络编程</a> <a href="/tags/Ollydbg/" style="font-size: 15px;">Ollydbg</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 10px;">汇编语言</a> <a href="/tags/%E8%A1%A5%E4%B8%81/" style="font-size: 10px;">补丁</a> <a href="/tags/%E9%80%86%E5%90%91/" style="font-size: 10px;">逆向</a>
+    </div>
+    
+  </div>
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">November 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 John Doe
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 44.351961950059454%;"> 
+          <img data-src="/images/back.png#http://image.baidu.com/search/detail?ct=503316480&z=0&tn=baiduimagedetail&ipn=d&word=%E5%A4%B4%E5%83%8F&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&hd=undefined&latest=undefined&copyright=undefined&cs=2931642726,2250852866&os=2287284932,3429297153&simid=3395842058,245671389&pn=49&rn=1&di=64130&ln=3096&fr=&fmq=1461834053046_R&fm=&ic=0&s=0&se=&sme=&tab=0&width=&height=&face=undefined&is=0,0&istype=2&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&objurl=http%3A%2F%2Fimg1.3lian.com%2Fgif%2Fmore%2F11%2F2012%2F03%2Fe260e9acb2ffdf71f2c260d90ff5100d.jpg&rpstart=0&rpnum=0&adpicid=0&force=undefined" data-sizes="auto" alt="汇编指令与C语言" class="lazyload">
+          <h1>汇编指令与C语言</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2019年11月04日</a>
+    <a><i class="nexmoefont icon-areachart"></i>319 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <p>#第一章：汇编指令与C语言<br>##1.1上机建立第一个工程<br>Windows底层代码基本都是用C语言写的，要创建.c文件</p>
 <blockquote>
 <blockquote>
 <p>实例代码：</p>
@@ -133,61 +257,69 @@
 </ul>
 </blockquote>
 
-    </section>
-    <section class="extra">
-      
-      
-  <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows%E7%BC%96%E7%A8%8B-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" rel="tag">-Windows编程 -汇编语言</a></li></ul>
+  </article>
 
-      
-<nav class="nav">
-  
-    <a href="/2019/11/04/Linux%E7%BC%96%E7%A8%8B%E7%8E%AF%E5%A2%83/"><i class="iconfont iconleft"></i>Linux编程环境</a>
-  
-  
-    <a href="/2019/11/04/Ollydbg%E7%9A%84%E5%AD%A6%E4%B9%A0/">Ollydbg的学习<i class="iconfont iconright"></i></a>
-  
-</nav>
-
-    </section>
+  <div class="nexmoe-post-meta">
     
-  </section>
-</article>
-  </div>
-</main>
-  <footer class="footer">
-  <div class="footer-social">
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/Windows%E7%BC%96%E7%A8%8B-%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" rel="tag">-Windows编程 -汇编语言</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>John Doe<br>
+    <strong>Link：</strong><a href="http://yoursite.com/2019/11/04/%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E4%B8%8EC%E8%AF%AD%E8%A8%80/" title="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E4%B8%8EC%E8%AF%AD%E8%A8%80&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;04&#x2F;%E6%B1%87%E7%BC%96%E6%8C%87%E4%BB%A4%E4%B8%8EC%E8%AF%AD%E8%A8%80&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
     
   </div>
-  <div class="footer-copyright"></div>
-</footer>
-  <div class="fab fab-plus">
-  <i class="iconfont iconplus"></i>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '',
+        clientSecret: '',
+        id: window.location.pathname,
+        repo: 'Sndow.github.io',
+        owner: 'JinxiangMa',
+        admin: 'JinxiangMa'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
 </div>
-<div class="fab fab-up">
-  <i class="iconfont iconcaret-up"></i>
-</div>
-<div class="fab fab-menu">
-  <i class="iconfont iconmenu"></i>
-</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="/js/app.js?v=1581995205910"></script>-->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+ 
+<script> 
+!function(e,t,a){function n(){c(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}"),o(),r()}function r(){for(var e=0;e<d.length;e++)d[e].alpha<=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText="left:"+d[e].x+"px;top:"+d[e].y+"px;opacity:"+d[e].alpha+";transform:scale("+d[e].scale+","+d[e].scale+") rotate(45deg);background:"+d[e].color+";z-index:99999");requestAnimationFrame(r)}function o(){var t="function"==typeof e.onclick&&e.onclick;e.onclick=function(e){t&&t(),i(e)}}function i(e){var a=t.createElement("div");a.className="heart",d.push({el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()}),t.body.appendChild(a)}function c(e){var a=t.createElement("style");a.type="text/css";try{a.appendChild(t.createTextNode(e))}catch(t){a.styleSheet.cssText=e}t.getElementsByTagName("head")[0].appendChild(a)}function s(){return"rgb("+~~(255*Math.random())+","+~~(255*Math.random())+","+~~(255*Math.random())+")"}var d=[];e.requestAnimationFrame=function(){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e){setTimeout(e,1e3/60)}}(),n()}(window,document);
+</script>
+
+  
+
+
+
+
+
 </body>
-
-
-<script src="/lib/jquery/jquery.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-<script src="/js/script.js"></script>
-
-
 
 </html>
