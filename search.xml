@@ -17,13 +17,13 @@
       </tags>
   </entry>
   <entry>
-    <title>认识python</title>
-    <url>/2020/05/04/%E8%AE%A4%E8%AF%86python/</url>
+    <title>learn-python</title>
+    <url>/2020/05/04/learn-python/</url>
     <content><![CDATA[<blockquote>
 <p>人生苦短，我用 Python —— Life is short, you need Python</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="认识-Python"><a href="#认识-Python" class="headerlink" title="认识 Python"></a>认识 Python</h1><p><img src="/2020/05/04/%E8%AE%A4%E8%AF%86python/14950329208518/001_%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%E6%88%91%E7%94%A8python.jpg" alt="001_人生苦短我用python"></p>
+<h1 id="认识-Python"><a href="#认识-Python" class="headerlink" title="认识 Python"></a>认识 Python</h1><p><img src="/2020/05/04/learn-python/14950329208518/001_%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%E6%88%91%E7%94%A8python.jpg" alt="001_人生苦短我用python"></p>
 <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
 <li>Python 的起源</li>
 <li>为什么要用 Python？</li>
@@ -33,7 +33,7 @@
 <h2 id="01-Python-的起源"><a href="#01-Python-的起源" class="headerlink" title="01. Python 的起源"></a>01. Python 的起源</h2><p> 1991 年，第一个 Python <strong>解释器</strong> 诞生，它是用 C 语言实现的，并能够调用 C 语言的库文件</p>
 <h3 id="1-1-解释器"><a href="#1-1-解释器" class="headerlink" title="1.1 解释器"></a>1.1 解释器</h3><p><strong>计算机不能直接理解任何除机器语言以外的语言</strong>，所以必须要把程序员所写的<strong>程序语言</strong>翻译成机器语言，计算机才能执行程序。<strong>将其他语言翻译成机器语言的工具，被称为编译器</strong></p>
 <p>编译器翻译的方式有两种：一个是<strong>编译</strong>，另外一个是<strong>解释</strong>。两种方式之间的区别在于<strong>翻译时间点的不同</strong>。当编译器<strong>以解释方式运行的时候</strong>，也称之为<strong>解释器</strong></p>
-<p><img src="/2020/05/04/%E8%AE%A4%E8%AF%86python/001-1.png" alt="001_编译型和解释型语言工作对比"></p>
+<p><img src="/2020/05/04/learn-python/001-1.png" alt="001_编译型和解释型语言工作对比"></p>
 <ul>
 <li><strong>编译型语言</strong>：程序在执行之前需要一个专门的编译过程，把程序编译成为机器语言的文件，运行时不需要重新翻译，直接使用编译的结果就行了。程序执行效率高，依赖编译器，跨平台性差些。如 C、C++</li>
 <li><strong>解释型语言</strong>：解释型语言编写的程序不进行预先编译，以文本方式存储程序代码，会将代码一句一句直接运行。在发布程序时，看起来省了道编译工序，但是在运行程序的时候，必须先解释再运行</li>
