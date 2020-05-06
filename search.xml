@@ -17,65 +17,27 @@
       </tags>
   </entry>
   <entry>
-    <title>python基础01</title>
-    <url>/2020/05/04/learn-python/</url>
+    <title>Python基础01</title>
+    <url>/2020/05/04/python%E5%9F%BA%E7%A1%8001/</url>
     <content><![CDATA[<blockquote>
 <p>人生苦短，我用 Python —— Life is short, you need Python</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="认识-Python"><a href="#认识-Python" class="headerlink" title="认识 Python"></a>认识 Python</h1><p><img src="/2020/05/04/learn-python/14950329208518/001_%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%E6%88%91%E7%94%A8python.jpg" alt="001_人生苦短我用python"></p>
-<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
-<li>Python 的起源</li>
-<li>为什么要用 Python？</li>
-<li>Python 的特点</li>
-<li>Python 的优缺点</li>
-</ul>
-<h2 id="01-Python-的起源"><a href="#01-Python-的起源" class="headerlink" title="01. Python 的起源"></a>01. Python 的起源</h2><p> 1991 年，第一个 Python <strong>解释器</strong> 诞生，它是用 C 语言实现的，并能够调用 C 语言的库文件</p>
+<h1 id="01-认识-Python"><a href="#01-认识-Python" class="headerlink" title="01_认识 Python"></a>01_认识 Python</h1><h2 id="01-Python-的起源"><a href="#01-Python-的起源" class="headerlink" title="01. Python 的起源"></a>01. Python 的起源</h2><p> 第一个 Python <strong>解释器</strong> 诞生，它是用 C 语言实现的，并能够调用 C 语言的库文件</p>
 <h3 id="1-1-解释器"><a href="#1-1-解释器" class="headerlink" title="1.1 解释器"></a>1.1 解释器</h3><p><strong>计算机不能直接理解任何除机器语言以外的语言</strong>，所以必须要把程序员所写的<strong>程序语言</strong>翻译成机器语言，计算机才能执行程序。<strong>将其他语言翻译成机器语言的工具，被称为编译器</strong></p>
-<p>编译器翻译的方式有两种：一个是<strong>编译</strong>，另外一个是<strong>解释</strong>。两种方式之间的区别在于<strong>翻译时间点的不同</strong>。当编译器<strong>以解释方式运行的时候</strong>，也称之为<strong>解释器</strong></p>
-<p><img src="/2020/05/04/learn-python/001-1.png" alt="001_编译型和解释型语言工作对比"></p>
+<p>编译器翻译的方式有两种：一个是<strong>编译</strong>，另外一个是<strong>解释</strong>。两种方式之间的区别在于<strong>翻译时间点的不同</strong>。</p>
+<p><img src="/2020/05/04/python%E5%9F%BA%E7%A1%8001/001-1.png" alt="001_编译型和解释型语言工作对比"></p>
 <ul>
-<li><strong>编译型语言</strong>：程序在执行之前需要一个专门的编译过程，把程序编译成为机器语言的文件，运行时不需要重新翻译，直接使用编译的结果就行了。程序执行效率高，依赖编译器，跨平台性差些。如 C、C++</li>
-<li><strong>解释型语言</strong>：解释型语言编写的程序不进行预先编译，以文本方式存储程序代码，会将代码一句一句直接运行。在发布程序时，看起来省了道编译工序，但是在运行程序的时候，必须先解释再运行</li>
+<li><strong>编译型语言</strong>：程序在执行之前需要一个专门的编译过程，把程序编译成为机器语言的文件，运行时不需要重新翻译，直接使用编译的结果就行了。<strong>统一编译，一次执行</strong>程序执行效率高，依赖编译器，<strong>跨平台性差些</strong>。如 C、C++</li>
+<li><strong>解释型语言</strong>：解释型语言编写的程序不进行<strong>预先编译</strong>，以文本方式存储程序代码，会将代码一句一句直接运行在相关平台上。在运行程序的时候，必须先解释再运行</li>
 </ul>
 <h4 id="编译型语言和解释型语言对比"><a href="#编译型语言和解释型语言对比" class="headerlink" title="编译型语言和解释型语言对比"></a>编译型语言和解释型语言对比</h4><ul>
 <li><strong>速度</strong> —— 编译型语言比解释型语言执行速度快</li>
 <li><strong>跨平台性</strong> —— 解释型语言比编译型语言跨平台性好</li>
 </ul>
-<h3 id="1-2-Python-的设计目标"><a href="#1-2-Python-的设计目标" class="headerlink" title="1.2 Python 的设计目标"></a>1.2 Python 的设计目标</h3><p>1999 年，吉多·范罗苏姆向 DARPA 提交了一条名为 “Computer Programming for Everybody” 的资金申请，并在后来说明了他对 Python 的目标：</p>
-<ul>
-<li>一门<strong>简单直观的语言</strong>并与主要竞争者一样强大</li>
-<li><strong>开源</strong>，以便任何人都可以为它做贡献</li>
-<li>代码<strong>像纯英语那样容易理解</strong></li>
-<li>适用于<strong>短期</strong>开发的日常任务</li>
-</ul>
-<p>这些想法中的基本都已经成为现实，Python 已经成为一门流行的编程语言</p>
-<h3 id="1-3-Python-的设计哲学"><a href="#1-3-Python-的设计哲学" class="headerlink" title="1.3 Python 的设计哲学"></a>1.3 Python 的设计哲学</h3><ol>
-<li>优雅</li>
-<li>明确</li>
-<li>简单</li>
-</ol>
-<!-- > 在 Python 解释器内运行 `import this` 可以获得完整的列表 -->
-
-<ul>
-<li>Python 开发者的哲学是：<strong>用一种方法，最好是只有一种方法来做一件事</strong></li>
-<li>如果面临多种选择，Python 开发者一般会拒绝花俏的语法，而选择<strong>明确没有或者很少有歧义的语法</strong></li>
-</ul>
-<blockquote>
-<p>在 Python 社区，吉多被称为“仁慈的独裁者”</p>
-</blockquote>
-<h2 id="02-为什么选择-Python？"><a href="#02-为什么选择-Python？" class="headerlink" title="02. 为什么选择 Python？"></a>02. 为什么选择 Python？</h2><ul>
-<li>代码量少</li>
-<li>……</li>
-</ul>
-<blockquote>
-<p>同一样问题，用不同的语言解决，代码量差距还是很多的，一般情况下 <code>Python</code> 是 <code>Java</code> 的 <strong>1/5</strong>，所以说 <strong>人生苦短，我用 Python</strong></p>
-</blockquote>
 <h2 id="03-Python-特点"><a href="#03-Python-特点" class="headerlink" title="03. Python 特点"></a>03. Python 特点</h2><ul>
 <li>Python 是<strong>完全面向对象的语言</strong><ul>
 <li><strong>函数</strong>、<strong>模块</strong>、<strong>数字</strong>、<strong>字符串</strong>都是对象，<strong>在 Python 中一切皆对象</strong></li>
-<li>完全支持继承、重载、多重继承</li>
-<li>支持重载运算符，也支持泛型设计</li>
 </ul>
 </li>
 <li>Python <strong>拥有一个强大的标准库</strong>，Python 语言的核心只包含 <strong>数字</strong>、<strong>字符串</strong>、<strong>列表</strong>、<strong>字典</strong>、<strong>文件</strong> 等常见类型和函数，而由 Python 标准库提供了 <strong>系统管理</strong>、<strong>网络通信</strong>、<strong>文本处理</strong>、<strong>数据库接口</strong>、<strong>图形系统</strong>、<strong>XML 处理</strong> 等额外的功能</li>
@@ -90,8 +52,6 @@
 <li>要解决复杂的问题，就可以找<strong>多个不同的对象</strong>，<strong>各司其职</strong>，共同实现，最终完成需求</li>
 </ul>
 <h2 id="04-Python-的优缺点"><a href="#04-Python-的优缺点" class="headerlink" title="04. Python 的优缺点"></a>04. Python 的优缺点</h2><h3 id="4-1-优点"><a href="#4-1-优点" class="headerlink" title="4.1 优点"></a>4.1 优点</h3><ul>
-<li>简单、易学</li>
-<li>免费、开源</li>
 <li><strong>面向对象</strong></li>
 <li>丰富的库</li>
 <li>可扩展性<ul>
@@ -105,6 +65,650 @@
 <li>国内市场较小</li>
 <li>中文资料匮乏</li>
 </ul>
+<hr>
+<hr>
+<hr>
+<h1 id="02-第一个-Python-程序"><a href="#02-第一个-Python-程序" class="headerlink" title="02_第一个 Python 程序"></a>02_第一个 Python 程序</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><code>Python 2.x</code> 与 <code>3​​.x</code> 版本简介</li>
+<li>执行 <code>Python</code> 程序的三种方式<ul>
+<li>解释器 —— <code>python</code> / <code>python3</code></li>
+<li>交互式 —— <code>ipython</code></li>
+<li>集成开发环境 —— <code>PyCharm</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="01-第一个-HelloPython-程序"><a href="#01-第一个-HelloPython-程序" class="headerlink" title="01. 第一个 HelloPython 程序"></a>01. 第一个 <code>HelloPython</code> 程序</h2><h3 id="1-1-Python-源程序的基本概念"><a href="#1-1-Python-源程序的基本概念" class="headerlink" title="1.1 Python 源程序的基本概念"></a>1.1 Python 源程序的基本概念</h3><ol>
+<li>Python 源程序就是<strong>一个特殊格式的文本文件</strong>，可以<strong>使用任意文本编辑软件</strong>做 <code>Python</code> 的开发</li>
+<li>Python 程序的 <strong>文件扩展名</strong> 通常都是 <code>.py</code></li>
+</ol>
+<h3 id="1-2-认识错误（BUG）"><a href="#1-2-认识错误（BUG）" class="headerlink" title="1.2  认识错误（BUG）"></a>1.2  认识错误（BUG）</h3><ul>
+<li><blockquote>
+<p>缩进错误</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">IndentationError: unexpected indent</span><br><span class="line"></span><br><span class="line">缩进错误：不期望出现的缩进</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li>Python 是一个格式非常严格的程序设计语言</li>
+</ul>
+</blockquote>
+<ul>
+<li><blockquote>
+<p><strong>python 2.x 默认不支持中文</strong> </p>
+</blockquote>
+</li>
+</ul>
+<p>目前市场上有两个 Python 的版本并存着，分别是 <code>Python 2.x</code> 和 <code>Python 3.x</code></p>
+<ul>
+<li><strong>Python 2.x 默认不支持中文</strong>，具体原因: <strong>字符编码</strong> </li>
+<li>Python 2.x 的解释器名称是 <strong>python</strong></li>
+<li>Python 3.x 的解释器名称是 <strong>python3</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character &#39;\xe4&#39; in file 01-HelloPython.py on line 3, </span><br><span class="line">but no encoding declared; </span><br><span class="line">see http:&#x2F;&#x2F;python.org&#x2F;dev&#x2F;peps&#x2F;pep-0263&#x2F; for details</span><br><span class="line"></span><br><span class="line">语法错误： 在 01-HelloPython.py 中第 3 行出现了非 ASCII 字符 &#39;\xe4&#39;，但是没有声明文件编码</span><br><span class="line">请访问 http:&#x2F;&#x2F;python.org&#x2F;dev&#x2F;peps&#x2F;pep-0263&#x2F; 了解详细信息</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ul>
+<li><code>ASCII</code> 字符只包含 <code>256</code> 个字符，不支持中文</li>
+</ul>
+</blockquote>
+<h2 id="02-Python-2-x-与-3​​-x-版本简介"><a href="#02-Python-2-x-与-3​​-x-版本简介" class="headerlink" title="02. Python 2.x 与 3​​.x 版本简介"></a>02. <code>Python 2.x</code> 与 <code>3​​.x</code> 版本简介</h2><ul>
+<li>为了不带入过多的累赘，<code>Python 3.0</code> 在设计的时候 <strong>没有考虑向下兼容</strong></li>
+<li>许多早期 <code>Python</code> 版本设计的程序都无法在 <code>Python 3.0</code> 上正常执行<ul>
+<li>为了照顾现有的程序，官方提供了一个过渡版本 —— <strong>Python 2.6</strong></li>
+<li>基本使用了 <code>Python 2.x</code> 的语法和库</li>
+<li>同时考虑了向 <code>Python 3.0</code> 的迁移，<strong>允许使用部分</strong> <code>Python 3.0</code> 的语法与函数</li>
+<li>2010 年中推出的 <code>Python 2.7</code> 被确定为 <strong>最后一个Python 2.x 版本</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>提示：如果开发时，无法立即使用 Python 3.0（还有极少的第三方库不支持 3.0 的语法），建议</p>
+<ul>
+<li>先使用 <code>Python 3.0</code> 版本进行开发</li>
+<li>然后使用 <code>Python 2.6</code>、<code>Python 2.7</code> 来执行，并且做一些兼容性的处理</li>
+</ul>
+</blockquote>
+<h2 id="03-执行-Python-程序的三种方式"><a href="#03-执行-Python-程序的三种方式" class="headerlink" title="03. 执行 Python 程序的三种方式"></a>03. 执行 Python 程序的三种方式</h2><h3 id="3-1-解释器-python-python3"><a href="#3-1-解释器-python-python3" class="headerlink" title="3.1. 解释器 python / python3"></a>3.1. 解释器 <code>python</code> / <code>python3</code></h3><h4 id="Python-的解释器"><a href="#Python-的解释器" class="headerlink" title="Python 的解释器"></a>Python 的解释器</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 使用 python 2.x 解释器</span></span><br><span class="line">$ python xxx.py</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 python 3.x 解释器</span></span><br><span class="line">$ python3 xxx.py</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-交互式运行-Python-程序"><a href="#3-2-交互式运行-Python-程序" class="headerlink" title="3.2. 交互式运行 Python 程序"></a>3.2. 交互式运行 Python 程序</h3><ul>
+<li>直接在终端中运行解释器，而不输入要执行的文件名</li>
+<li>在 Python 的 <code>Shell</code> 中直接输入 <strong>Python 的代码</strong>，会立即看到程序执行结果</li>
+</ul>
+<h4 id="IPython"><a href="#IPython" class="headerlink" title="IPython"></a>IPython</h4><ul>
+<li>IPython 中 的 “I” 代表 <strong>交互 interactive</strong></li>
+</ul>
+<h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ul>
+<li>IPython 是一个 python 的 <strong>交互式 shell</strong>，比默认的 <code>python shell</code> 好用得多<ul>
+<li>支持自动补全</li>
+<li>自动缩进</li>
+<li>支持 <code>bash shell</code> 命令</li>
+<li>内置了许多很有用的功能和函数</li>
+</ul>
+</li>
+</ul>
+<h4 id="IPython-的安装"><a href="#IPython-的安装" class="headerlink" title="IPython 的安装"></a>IPython 的安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ python -m pip install -U pip   <span class="comment"># 安装升级pip</span></span><br><span class="line">$ pip install ipython                   <span class="comment">#使用pip安装IPython</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-3-集成开发环境"><a href="#3-3-集成开发环境" class="headerlink" title="3.3 集成开发环境"></a>3.3 集成开发环境</h3><p>集成开发环境（<code>IDE</code>，Integrated Development Environment）—— <strong>集成了开发软件需要的所有工具</strong>，一般包括以下工具：</p>
+<ul>
+<li>图形用户界面</li>
+<li>代码编辑器（支持 <strong>代码补全</strong>／<strong>自动缩进</strong>）</li>
+<li>编译器／解释器</li>
+<li>调试器（<strong>断点</strong>／<strong>单步执行</strong>）</li>
+<li>……</li>
+</ul>
+<h3 id="3-4-多个项目"><a href="#3-4-多个项目" class="headerlink" title="3.4 多个项目"></a>3.4 多个项目</h3><ul>
+<li>对于商业项目而言，通常在一个项目中，只有一个 <strong>可以直接执行的 Python 源程序</strong></li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h1 id="03-注释"><a href="#03-注释" class="headerlink" title="03_注释"></a>03_注释</h1><h2 id="目录-1"><a href="#目录-1" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>注释的作用</li>
+<li>单行注释（行注释）</li>
+<li>多行注释（块注释）</li>
+</ul>
+<h2 id="01-注释的作用"><a href="#01-注释的作用" class="headerlink" title="01. 注释的作用"></a>01. 注释的作用</h2><blockquote>
+<p>在程序中对某些代码进行标注说明，增强程序的可读性</p>
+</blockquote>
+<h2 id="02-单行注释-行注释"><a href="#02-单行注释-行注释" class="headerlink" title="02. 单行注释(行注释)"></a>02. 单行注释(行注释)</h2><ul>
+<li><p>以 <code>#</code> 开头，不是真正要执行的程序，只起到辅助说明作用</p>
+</li>
+<li><p>示例代码如下：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 这是第一个单行注释</span></span><br><span class="line">print(<span class="string">"hello python"</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>为了保证代码的可读性，<code>#</code> 后面建议先添加一个空格，然后再编写相应的说明文字</p>
+</blockquote>
+<h3 id="在代码后面增加的单行注释"><a href="#在代码后面增加的单行注释" class="headerlink" title="在代码后面增加的单行注释"></a>在代码后面增加的单行注释</h3><ul>
+<li><p>在程序开发时，同样可以使用 <code>#</code> 在代码的后面（旁边）增加说明性的文字</p>
+</li>
+<li><p>但是，需要注意的是，<strong>为了保证代码的可读性</strong>，<strong>注释和代码之间</strong> 至少要有 <strong>两个空格</strong></p>
+</li>
+<li><p>示例代码如下：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"hello python"</span>)  <span class="comment"># 输出 `hello python`</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="03-多行注释（块注释）"><a href="#03-多行注释（块注释）" class="headerlink" title="03. 多行注释（块注释）"></a>03. 多行注释（块注释）</h2><ul>
+<li><p><strong>一对 连续的 三个 引号</strong>(单引号和双引号都可以)</p>
+</li>
+<li><p>示例代码如下：</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">这是一个多行注释</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">在多行注释之间，可以写很多很多的内容……</span></span><br><span class="line"><span class="string">"""</span> </span><br><span class="line">print(<span class="string">"hello python"</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<hr>
+<h1 id="04-算数运算符"><a href="#04-算数运算符" class="headerlink" title="04_算数运算符"></a>04_算数运算符</h1><p><strong>计算机</strong>，顾名思义就是负责进行 <strong>数学计算</strong> 并且 <strong>存储计算结果</strong> 的电子设备</p>
+<h2 id="01-算数运算符"><a href="#01-算数运算符" class="headerlink" title="01. 算数运算符"></a>01. 算数运算符</h2><ul>
+<li>算数运算符是 <strong>运算符的一种</strong></li>
+<li>用来处理四则运算</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">描述</th>
+<th>实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">加</td>
+<td>10 + 20 = 30</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">减</td>
+<td>10 - 20 = -10</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">乘</td>
+<td>10 * 20 = 200</td>
+</tr>
+<tr>
+<td align="center">/</td>
+<td align="center">除</td>
+<td>10 / 20 = 0.5</td>
+</tr>
+<tr>
+<td align="center">//</td>
+<td align="center">取整除</td>
+<td>返回除法的整数部分（商） 9 // 2 输出结果 4</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">取余数</td>
+<td>返回除法的余数 9 % 2 = 1</td>
+</tr>
+<tr>
+<td align="center">**</td>
+<td align="center">幂</td>
+<td>又称次方、乘方，2 ** 3 = 8</td>
+</tr>
+</tbody></table>
+<ul>
+<li>在 Python 中 <code>*</code> 运算符还可以用于字符串，计算结果就是字符串重复指定次数的结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="string">"-"</span> * <span class="number">50</span></span><br><span class="line">Out[<span class="number">1</span>]: <span class="string">'----------------------------------------'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="02-算数运算符的优先级"><a href="#02-算数运算符的优先级" class="headerlink" title="02. 算数运算符的优先级"></a>02. 算数运算符的优先级</h2><ul>
+<li><p>和数学中的运算符的优先级一致，在 Python 中进行数学计算时，同样也是：</p>
+<ul>
+<li><strong>先乘除后加减</strong></li>
+<li>同级运算符是 <strong>从左至右</strong> 计算</li>
+<li>可以使用 <code>()</code> 调整计算的优先级</li>
+</ul>
+</li>
+<li><p>以下表格的算数优先级由高到最低顺序排列</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>**</td>
+<td>幂 (最高优先级)</td>
+</tr>
+<tr>
+<td>* / % //</td>
+<td>乘、除、取余数、取整除</td>
+</tr>
+<tr>
+<td>+ -</td>
+<td>加法、减法</td>
+</tr>
+</tbody></table>
+<ul>
+<li>例如：<ul>
+<li><code>2 + 3 * 5 = 17</code></li>
+<li><code>(2 + 3) * 5 = 25</code></li>
+<li><code>2 * 3 + 5 = 11</code></li>
+<li><code>2 * (3 + 5) = 16</code></li>
+</ul>
+</li>
+</ul>
+<hr>
+<hr>
+<hr>
+<h1 id="05-程序执行原理（科普）"><a href="#05-程序执行原理（科普）" class="headerlink" title="05_程序执行原理（科普）"></a>05_程序执行原理（科普）</h1><p>目录：</p>
+<ul>
+<li>计算机中的 <strong>三大件</strong></li>
+<li>程序执行的原理</li>
+<li>程序的作用</li>
+</ul>
+<h2 id="01-计算机中的三大件"><a href="#01-计算机中的三大件" class="headerlink" title="01. 计算机中的三大件"></a>01. 计算机中的三大件</h2><p>计算机中包含有较多的硬件，但是一个程序要运行，有 <strong>三个</strong> 核心的硬件，分别是：</p>
+<ol>
+<li><strong>CPU</strong> <ul>
+<li>中央处理器，是一块超大规模的集成电路</li>
+<li>负责 <strong>处理数据</strong>／<strong>计算</strong></li>
+</ul>
+</li>
+<li><strong>内存</strong><ul>
+<li><strong>临时</strong> 存储数据（断电之后，数据会消失）</li>
+<li>速度快</li>
+<li>空间小（单位价格高）</li>
+</ul>
+</li>
+<li><strong>硬盘</strong> <ul>
+<li><strong>永久</strong> 存储数据</li>
+<li>速度慢</li>
+<li>空间大（单位价格低）</li>
+</ul>
+</li>
+</ol>
+<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><ol>
+<li>计算机中哪一个硬件设备负责执行程序？<ul>
+<li><strong>CPU</strong></li>
+</ul>
+</li>
+<li><strong>内存</strong> 的速度快还是 <strong>硬盘</strong> 的速度快？<ul>
+<li><strong>内存</strong></li>
+</ul>
+</li>
+<li>我们的程序是安装在内存中的，还是安装在硬盘中的？<ul>
+<li>硬盘</li>
+</ul>
+</li>
+<li><strong>我买了一个内存条，有 500G 的空间！！！</strong>，这句话对吗？<ul>
+<li>不对，内存条通常只有 <code>4G</code> / <code>8G</code> / <code>16G</code> / <code>32G</code></li>
+</ul>
+</li>
+<li><strong>计算机关机之后，内存中的数据都会消失</strong>，这句话对吗？<ul>
+<li>正确 </li>
+</ul>
+</li>
+</ol>
+<h2 id="02-程序执行的原理"><a href="#02-程序执行的原理" class="headerlink" title="02. 程序执行的原理"></a>02. 程序执行的原理</h2><ol>
+<li>程序 <strong>运行之前</strong>，程序是 <strong>保存在硬盘</strong> 中的</li>
+<li>当要运行一个程序时<ul>
+<li>操作系统会首先让 <strong>CPU</strong> 把程序复制到 <strong>内存</strong> 中</li>
+<li><strong>CPU</strong> 执行 <strong>内存</strong> 中的 <strong>程序代码</strong></li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>程序要执行，首先要被加载到内存</strong></p>
+</blockquote>
+<h3 id="2-1-Python-程序执行原理"><a href="#2-1-Python-程序执行原理" class="headerlink" title="2.1 Python 程序执行原理"></a>2.1 Python 程序执行原理</h3><ol>
+<li>操作系统会首先让 <strong>CPU</strong> 把 <strong>Python 解释器</strong> 复制到 <strong>内存</strong> 中</li>
+<li><strong>Python 解释器</strong> 根据语法规则，<strong>从上向下</strong> 让 <strong>CPU</strong> 翻译 <strong>Python 程序中的代码</strong></li>
+<li><strong>CPU</strong> 负责执行翻译完成的代码</li>
+</ol>
+<h4 id="Python-的解释器有多大？"><a href="#Python-的解释器有多大？" class="headerlink" title="Python 的解释器有多大？"></a>Python 的解释器有多大？</h4><ul>
+<li>执行以下终端命令可以查看 Python 解释器的大小</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 确认解释器所在位置</span></span><br><span class="line">$ <span class="built_in">which</span> python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 查看 python 文件大小(只是一个软链接)</span></span><br><span class="line">$ ls -lh /usr/bin/python</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 查看具体文件大小</span></span><br><span class="line">$ ls -lh /usr/bin/python2.7</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>提示：建立 <strong>软链接</strong> 的目的，是为了方便使用者不用记住使用的解释器是 <strong>哪一个具体版本</strong></p>
+</blockquote>
+<h2 id="03-程序的作用"><a href="#03-程序的作用" class="headerlink" title="03. 程序的作用"></a>03. 程序的作用</h2><blockquote>
+<ul>
+<li><strong>程序就是用来处理数据的，而变量就是用来存储数据的</strong></li>
+</ul>
+</blockquote>
+<hr>
+<hr>
+<hr>
+<h1 id="06-变量的基本使用"><a href="#06-变量的基本使用" class="headerlink" title="06_ 变量的基本使用"></a>06_ 变量的基本使用</h1><blockquote>
+<p><strong>程序就是用来处理数据的，而变量就是用来存储数据的</strong></p>
+</blockquote>
+<h2 id="目录-2"><a href="#目录-2" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>变量定义</li>
+<li>变量的类型</li>
+<li>变量的命名</li>
+</ul>
+<h2 id="01-变量定义"><a href="#01-变量定义" class="headerlink" title="01. 变量定义"></a>01. 变量定义</h2><ul>
+<li>在 Python 中，每个变量 <strong>在使用前都必须赋值</strong>，变量 <strong>赋值以后</strong> 该变量 <strong>才会被创建</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">变量名 = 值</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用解释器执行，如果要输出变量的内容，必须要要使用 <code>print</code> 函数</p>
+</blockquote>
+<h3 id="变量演练-——-超市买苹果"><a href="#变量演练-——-超市买苹果" class="headerlink" title="变量演练  —— 超市买苹果"></a>变量演练  —— 超市买苹果</h3><blockquote>
+<ul>
+<li>可以用 <strong>其他变量的计算结果</strong> 来定义变量</li>
+<li>变量定义之后，后续就可以直接使用了</li>
+</ul>
+</blockquote>
+<p><strong>需求</strong></p>
+<ul>
+<li>苹果的价格是 <strong>8.5 元/斤</strong></li>
+<li>买了 <strong>7.5 斤</strong> 苹果</li>
+<li>计算付款金额</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义苹果价格变量</span></span><br><span class="line">price = <span class="number">8.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义购买重量</span></span><br><span class="line">weight = <span class="number">7.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算金额</span></span><br><span class="line">money = price * weight</span><br><span class="line"></span><br><span class="line">print(money)</span><br></pre></td></tr></table></figure>
+
+<h4 id="思考题-1"><a href="#思考题-1" class="headerlink" title="思考题"></a>思考题</h4><ul>
+<li>如果 <strong>只要买苹果，就返 5 块钱</strong></li>
+<li>请重新计算购买金额</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义苹果价格变量</span></span><br><span class="line">price = <span class="number">8.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义购买重量</span></span><br><span class="line">weight = <span class="number">7.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算金额</span></span><br><span class="line">money = price * weight</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只要买苹果就返 5 元</span></span><br><span class="line">money = money - <span class="number">5</span></span><br><span class="line">print(money)</span><br></pre></td></tr></table></figure>
+
+<p><strong>提问</strong></p>
+<ul>
+<li><code>money = money - 5</code> 是在定义新的变量还是在使用变量？<ul>
+<li>直接使用之前已经定义的变量</li>
+<li>变量名 只有在 <strong>第一次出现</strong> 才是 <strong>定义变量</strong></li>
+<li>变量名 再次出现，不是定义变量，而是直接使用之前定义过的变量</li>
+</ul>
+</li>
+<li>在程序开发中，可以修改之前定义变量中保存的值吗？<ul>
+<li>可以</li>
+<li>变量中存储的值，就是可以 <strong>变</strong> 的</li>
+</ul>
+</li>
+</ul>
+<h2 id="02-变量的类型"><a href="#02-变量的类型" class="headerlink" title="02. 变量的类型"></a>02. 变量的类型</h2><ul>
+<li>在内存中创建一个变量，会包括：<ol>
+<li>变量的名称</li>
+<li>变量保存的数据</li>
+<li>变量存储数据的类型</li>
+<li>变量的地址（标示）</li>
+</ol>
+</li>
+</ul>
+<h3 id="2-1-变量类型的演练-——-个人信息"><a href="#2-1-变量类型的演练-——-个人信息" class="headerlink" title="2.1 变量类型的演练 —— 个人信息"></a>2.1 变量类型的演练 —— 个人信息</h3><p><strong>需求</strong></p>
+<ul>
+<li>定义变量保存小明的个人信息</li>
+<li>姓名：<strong>小明</strong></li>
+<li>年龄：<strong>18</strong> 岁</li>
+<li>性别：<strong>是</strong>男生</li>
+<li>身高：<strong>1.75</strong> 米</li>
+<li>体重：<strong>75.0</strong> 公斤</li>
+</ul>
+<blockquote>
+<p>利用 <strong>单步调试</strong> 确认变量中保存数据的类型</p>
+</blockquote>
+<p><strong>提问</strong></p>
+<ol>
+<li>在演练中，一共有几种数据类型？<ul>
+<li>4 种</li>
+<li><code>str</code> —— 字符串</li>
+<li><code>bool</code> —— 布尔（真假）</li>
+<li><code>int</code> —— 整数</li>
+<li><code>float</code> —— 浮点数（小数）</li>
+</ul>
+</li>
+<li>在 <code>Python</code> 中定义变量时需要指定类型吗？<ul>
+<li>不需要</li>
+<li><code>Python</code> 可以根据 <code>=</code> 等号右侧的值，<strong>自动推导出变量中存储数据的类型</strong></li>
+</ul>
+</li>
+</ol>
+<h3 id="2-2-变量的类型"><a href="#2-2-变量的类型" class="headerlink" title="2.2 变量的类型"></a>2.2 变量的类型</h3><ul>
+<li>在 <code>Python</code> 中定义变量是 <strong>不需要指定类型</strong>（在其他很多高级语言中都需要）</li>
+<li>数据类型可以分为 <strong>数字型</strong> 和 <strong>非数字型</strong></li>
+<li>数字型<ul>
+<li>整型 (<code>int</code>)</li>
+<li>浮点型（<code>float</code>）</li>
+<li>布尔型（<code>bool</code>） <ul>
+<li>真 <code>True</code> <code>非 0 数</code> —— <strong>非零即真</strong></li>
+<li>假 <code>False</code> <code>0</code></li>
+</ul>
+</li>
+<li>复数型 (<code>complex</code>)<ul>
+<li>主要用于科学计算，例如：平面场问题、波动问题、电感电容等问题</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非数字型<ul>
+<li>字符串</li>
+<li>列表</li>
+<li>元组</li>
+<li>字典</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>提示：在 Python 2.x 中，<strong>整数</strong> 根据保存数值的长度还分为：</p>
+<ul>
+<li><code>int</code>（整数）</li>
+<li><code>long</code>（长整数）</li>
+</ul>
+</blockquote>
+<ul>
+<li>使用 <code>type</code> 函数可以查看一个变量的类型</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: type(name)</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-不同类型变量之间的计算"><a href="#2-3-不同类型变量之间的计算" class="headerlink" title="2.3 不同类型变量之间的计算"></a>2.3 不同类型变量之间的计算</h3><h4 id="1-数字型变量-之间可以直接计算"><a href="#1-数字型变量-之间可以直接计算" class="headerlink" title="1) 数字型变量 之间可以直接计算"></a>1) <strong>数字型变量</strong> 之间可以直接计算</h4><ul>
+<li>在 Python 中，两个数字型变量是可以直接进行 算数运算的</li>
+<li>如果变量是 <code>bool</code> 型，在计算时<ul>
+<li><code>True</code> 对应的数字是 <code>1</code></li>
+<li><code>False</code> 对应的数字是 <code>0</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>演练步骤</strong></p>
+<ol>
+<li>定义整数 <code>i = 10</code></li>
+<li>定义浮点数 <code>f = 10.5</code></li>
+<li>定义布尔型 <code>b = True</code></li>
+</ol>
+<ul>
+<li>在 iPython 中，使用上述三个变量相互进行算术运算</li>
+</ul>
+<h4 id="2-字符串变量-之间使用-拼接字符串"><a href="#2-字符串变量-之间使用-拼接字符串" class="headerlink" title="2) 字符串变量 之间使用 + 拼接字符串"></a>2) <strong>字符串变量</strong> 之间使用 <code>+</code> 拼接字符串</h4><ul>
+<li>在 Python 中，字符串之间可以使用 <code>+</code> 拼接生成新的字符串</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: first_name = <span class="string">"三"</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: last_name = <span class="string">"张"</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: first_name + last_name</span><br><span class="line">Out[<span class="number">3</span>]: <span class="string">'三张'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-字符串变量-可以和-整数-使用-重复拼接相同的字符串"><a href="#3-字符串变量-可以和-整数-使用-重复拼接相同的字符串" class="headerlink" title="3) 字符串变量 可以和 整数 使用 * 重复拼接相同的字符串"></a>3) <strong>字符串变量</strong> 可以和 <strong>整数</strong> 使用 <code>*</code> 重复拼接相同的字符串</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: <span class="string">"-"</span> * <span class="number">50</span></span><br><span class="line">Out[<span class="number">1</span>]: <span class="string">'--------------------------------------------------'</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-数字型变量-和-字符串-之间-不能进行其他计算"><a href="#4-数字型变量-和-字符串-之间-不能进行其他计算" class="headerlink" title="4) 数字型变量 和 字符串 之间 不能进行其他计算"></a>4) <strong>数字型变量</strong> 和 <strong>字符串</strong> 之间 <strong>不能进行其他计算</strong></h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">In [<span class="number">1</span>]: first_name = <span class="string">"zhang"</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">2</span>]: x = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">In [<span class="number">3</span>]: x + first_name</span><br><span class="line">---------------------------------------------------------------------------</span><br><span class="line">TypeError: unsupported operand type(s) <span class="keyword">for</span> +: <span class="string">'int'</span> <span class="keyword">and</span> <span class="string">'str'</span></span><br><span class="line">类型错误：`+` 不支持的操作类型：`int` 和 `str`</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>print函数也不适用</p>
+</blockquote>
+<h3 id="2-4-变量的输入"><a href="#2-4-变量的输入" class="headerlink" title="2.4 变量的输入"></a>2.4 变量的输入</h3><ul>
+<li>所谓 <strong>输入</strong>，就是 <strong>用代码</strong> <strong>获取</strong> 用户通过 <strong>键盘</strong> 输入的信息</li>
+<li>例如：去银行取钱，在 ATM 上输入密码</li>
+<li>在 Python 中，如果要获取用户在 <strong>键盘</strong> 上的输入信息，需要使用到 <code>input</code> 函数</li>
+</ul>
+<h4 id="1-关于函数"><a href="#1-关于函数" class="headerlink" title="1) 关于函数"></a>1) 关于函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>print(x)</td>
+<td>将 x 输出到控制台</td>
+</tr>
+<tr>
+<td>type(x)</td>
+<td>查看 x 的变量类型</td>
+</tr>
+</tbody></table>
+<h4 id="2-input-函数实现键盘输入"><a href="#2-input-函数实现键盘输入" class="headerlink" title="2) input 函数实现键盘输入"></a>2) input 函数实现键盘输入</h4><ul>
+<li>在 Python 中可以使用 <code>input</code> 函数从键盘等待用户的输入</li>
+<li>用户输入的 <strong>任何内容</strong> Python 都认为是一个 <strong>字符串</strong></li>
+<li>语法如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">字符串变量 = input(<span class="string">"提示信息："</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-类型转换函数"><a href="#3-类型转换函数" class="headerlink" title="3) 类型转换函数"></a>3) 类型转换函数</h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int(x)</td>
+<td>将 x 转换为一个整数</td>
+</tr>
+<tr>
+<td>float(x)</td>
+<td>将 x 转换到一个浮点数</td>
+</tr>
+</tbody></table>
+<h4 id="4-变量输入演练-——-超市买苹果增强版"><a href="#4-变量输入演练-——-超市买苹果增强版" class="headerlink" title="4) 变量输入演练 —— 超市买苹果增强版"></a>4) 变量输入演练 —— 超市买苹果增强版</h4><p><strong>需求</strong></p>
+<ul>
+<li><strong>收银员输入</strong> 苹果的价格，单位：<strong>元／斤</strong></li>
+<li><strong>收银员输入</strong> 用户购买苹果的重量，单位：<strong>斤</strong></li>
+<li>计算并且 <strong>输出</strong> 付款金额</li>
+</ul>
+<h5 id="演练方式-1"><a href="#演练方式-1" class="headerlink" title="演练方式 1"></a>演练方式 1</h5><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 1. 输入苹果单价</span></span><br><span class="line">price_str = input(<span class="string">"请输入苹果价格："</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 要求苹果重量</span></span><br><span class="line">weight_str = input(<span class="string">"请输入苹果重量："</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 计算金额</span></span><br><span class="line"><span class="comment"># 1&gt; 将苹果单价转换成小数</span></span><br><span class="line">price = float(price_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2&gt; 将苹果重量转换成小数</span></span><br><span class="line">weight = float(weight_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3&gt; 计算付款金额</span></span><br><span class="line">money = price * weight</span><br><span class="line"></span><br><span class="line">print(money)</span><br></pre></td></tr></table></figure>
+
+<p><strong>提问</strong></p>
+<ol>
+<li>演练中，针对 <strong>价格</strong> 定义了几个变量？<ul>
+<li><strong>两个</strong></li>
+<li><code>price_str</code> 记录用户输入的价格字符串</li>
+<li><code>price</code> 记录转换后的价格数值</li>
+</ul>
+</li>
+<li><strong>思考</strong> —— 如果开发中，需要用户通过控制台 输入 <strong>很多个 数字</strong>，针对每一个数字都要定义两个变量，<strong>方便吗</strong>？ </li>
+</ol>
+<h5 id="演练方式-2-——-买苹果改进版"><a href="#演练方式-2-——-买苹果改进版" class="headerlink" title="演练方式 2 —— 买苹果改进版"></a>演练方式 2 —— 买苹果改进版</h5><ol>
+<li><strong>定义</strong> 一个 <strong>浮点变量</strong> 接收用户输入的同时，就使用 <code>float</code> 函数进行转换</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">price = float(input(<span class="string">"请输入价格:"</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>改进后的好处：</li>
+</ul>
+<ol>
+<li>节约空间，只需要为一个变量分配空间</li>
+<li>起名字方便，不需要为中间变量起名字</li>
+</ol>
+<ul>
+<li>改进后的“缺点”：</li>
+</ul>
+<ol>
+<li>初学者需要知道，<strong>两个函数能够嵌套使用</strong>，稍微有一些难度</li>
+</ol>
+<p><strong>提示</strong></p>
+<ul>
+<li>如果输入的不是一个数字，程序执行时会出错，有关数据转换的高级话题，后续会讲！</li>
+</ul>
+<h3 id="2-5-变量的格式化输出"><a href="#2-5-变量的格式化输出" class="headerlink" title="2.5 变量的格式化输出"></a>2.5 变量的格式化输出</h3><blockquote>
+<p>苹果单价 <code>9.00</code> 元／斤，购买了 <code>5.00</code> 斤，需要支付 <code>45.00</code> 元</p>
+</blockquote>
+<ul>
+<li>在 Python 中可以使用 <code>print</code> 函数将信息输出到控制台</li>
+<li>如果希望输出文字信息的同时，<strong>一起输出</strong> <strong>数据</strong>，就需要使用到 <strong>格式化操作符</strong></li>
+<li><code>%</code> 被称为 <strong>格式化操作符</strong>，专门用于处理字符串中的格式<ul>
+<li>包含 <code>%</code> 的字符串，被称为 <strong>格式化字符串</strong></li>
+<li><code>%</code> 和不同的 <strong>字符</strong> 连用，<strong>不同类型的数据</strong> 需要使用 <strong>不同的格式化字符</strong></li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>格式化字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>%s</td>
+<td>字符串</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>有符号十进制整数，<code>%06d</code> 表示输出的整数显示位数，不足的地方使用 <code>0</code> 补全</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点数，<code>%.2f</code> 表示小数点后只显示两位</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>输出 <code>%</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>语法格式如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"格式化字符串"</span> % 变量<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"格式化字符串"</span> % (变量<span class="number">1</span>, 变量<span class="number">2.</span>..))</span><br></pre></td></tr></table></figure>
+
+<h4 id="格式化输出演练-——-基本练习"><a href="#格式化输出演练-——-基本练习" class="headerlink" title="格式化输出演练 —— 基本练习"></a>格式化输出演练 —— 基本练习</h4><p><strong>需求</strong></p>
+<ol>
+<li>定义字符串变量 <code>name</code>，输出 <strong>我的名字叫 小明，请多多关照！</strong></li>
+<li>定义整数变量 <code>student_no</code>，输出 <strong>我的学号是 000001</strong></li>
+<li>定义小数 <code>price</code>、<code>weight</code>、<code>money</code>，输出 <strong>苹果单价 9.00 元／斤，购买了 5.00 斤，需要支付 45.00 元</strong></li>
+<li>定义一个小数 <code>scale</code>，输出 <strong>数据比例是 10.00%</strong></li>
+</ol>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"我的名字叫 %s，请多多关照！"</span> % name)</span><br><span class="line">print(<span class="string">"我的学号是 %06d"</span> % student_no)</span><br><span class="line">print(<span class="string">"苹果单价 %.02f 元／斤，购买 %.02f 斤，需要支付 %.02f 元"</span> % (price, weight, money))</span><br><span class="line">print(<span class="string">"数据比例是 %.02f%%"</span> % (scale * <span class="number">100</span>))</span><br></pre></td></tr></table></figure>
+
+<h4 id="课后练习-——-个人名片"><a href="#课后练习-——-个人名片" class="headerlink" title="课后练习 —— 个人名片"></a>课后练习 —— 个人名片</h4><p><strong>需求</strong></p>
+<ul>
+<li>在控制台依次提示用户输入：<strong>姓名</strong>、<strong>公司</strong>、<strong>职位</strong>、<strong>电话</strong>、<strong>邮箱</strong></li>
+<li>按照以下格式输出：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**************************************************</span><br><span class="line">公司名称</span><br><span class="line"></span><br><span class="line">姓名 (职位)</span><br><span class="line"></span><br><span class="line">电话：电话</span><br><span class="line">邮箱：邮箱</span><br><span class="line">**************************************************</span><br></pre></td></tr></table></figure>
+
+<p>实现代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">在控制台依次提示用户输入：姓名、公司、职位、电话、电子邮箱</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">name = input(<span class="string">"请输入姓名："</span>)</span><br><span class="line">company = input(<span class="string">"请输入公司："</span>)</span><br><span class="line">title = input(<span class="string">"请输入职位："</span>)</span><br><span class="line">phone = input(<span class="string">"请输入电话："</span>)</span><br><span class="line">email = input(<span class="string">"请输入邮箱："</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">"*"</span> * <span class="number">50</span>)</span><br><span class="line">print(company)</span><br><span class="line">print()</span><br><span class="line">print(<span class="string">"%s (%s)"</span> % (name, title))     <span class="comment">#用%将整个格式化字符串包括，输出多个变量</span></span><br><span class="line">print()</span><br><span class="line">print(<span class="string">"电话：%s"</span> % phone)</span><br><span class="line">print(<span class="string">"邮箱：%s"</span> % email)</span><br><span class="line">print(<span class="string">"*"</span> * <span class="number">50</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ]]></content>
+      <categories>
+        <category>Python基础</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
   </entry>
 </search>
