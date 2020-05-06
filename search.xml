@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git部署问题</title>
+    <url>/2020/05/06/git%E9%83%A8%E7%BD%B2%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="Git操作失败并提示Another-git-process-seems-to-be-running-in-this……"><a href="#Git操作失败并提示Another-git-process-seems-to-be-running-in-this……" class="headerlink" title="Git操作失败并提示Another git process seems to be running in this……"></a>Git操作失败并提示Another git process seems to be running in this……</h3><p>Git操作的过程中突然显示Another git process semms to be running in this repository, e.g. an editor opened by ‘git commit’. Please make sure all processes are terminated then try again. If it still fails, a git process remove the file manually to continue… </p>
+<blockquote>
+<p>git被另外一个程序占用，重启机器也不能够解决。</p>
+</blockquote>
+<h4 id="原因在于Git在使用过程中遭遇了奔溃，部分被上锁资源没有被释放导致的。"><a href="#原因在于Git在使用过程中遭遇了奔溃，部分被上锁资源没有被释放导致的。" class="headerlink" title="原因在于Git在使用过程中遭遇了奔溃，部分被上锁资源没有被释放导致的。"></a>原因在于Git在使用过程中遭遇了奔溃，部分被上锁资源没有被释放导致的。</h4><p>解决方案：进入项目文件夹下的 .git文件中（显示隐藏文件夹或rm .git/index.lock）删除index.lock文件即可。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Beautiful English Sentences</title>
     <url>/2020/02/21/English-sentence/</url>
     <content><![CDATA[<p>remind you</p>
