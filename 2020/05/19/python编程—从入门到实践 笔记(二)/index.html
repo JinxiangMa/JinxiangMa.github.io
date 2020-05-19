@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            《python编程—从入门到实践》笔记(二) | Hexo
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Hexo</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.png"/>
+                
+            </div>
+            <div class="sidebar-author-name">Sndow</div>
+            <div class="sidebar-description">极客</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="/1521990341@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://github.com/jinxiangma" target="_blank" rel="noopener" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">《python编程—从入门到实践》笔记(二)</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-05-19
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-05-19
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/python%E7%BC%96%E7%A8%8B/">python编程</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=《python编程—从入门到实践》笔记(二)&url=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/&pic=http://yoursite.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=《python编程—从入门到实践》笔记(二)&url=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/&via=Sndow" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/&title=《python编程—从入门到实践》笔记(二)" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=《python编程—从入门到实践》笔记(二)&summary=极客&pics=http://yoursite.com/null&url=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/&text=《python编程—从入门到实践》笔记(二)" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ >读书笔记</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <blockquote>
+<p><strong>我就是一个打工仔！！！</strong> </p>
+</blockquote>
+<a id="more"></a>
+<h3 id="5-if语句"><a href="#5-if语句" class="headerlink" title="5.if语句"></a>5.if语句</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cars = [<span class="string">'audi'</span>, <span class="string">'bmw'</span>, <span class="string">'subaru'</span>, <span class="string">'toyota'</span>] </span><br><span class="line">cars_test = []</span><br><span class="line"><span class="keyword">if</span> cars_test:</span><br><span class="line">    print(<span class="string">"列表含有元素"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"列表为空"</span>)</span><br><span class="line">print(<span class="string">"\n"</span>)</span><br><span class="line"><span class="comment"># 注意代码块的冒号</span></span><br><span class="line"><span class="keyword">for</span> car <span class="keyword">in</span> cars:</span><br><span class="line">    <span class="keyword">if</span> car==<span class="string">"audi"</span>:    <span class="comment">#条件测试==：True/False，检查是否相等时区分大小写</span></span><br><span class="line">        print(car.title())</span><br><span class="line">    <span class="keyword">else</span>:               <span class="comment">#条件测试：!=</span></span><br><span class="line">        print(car.upper())      <span class="comment"># 函数upper不会改变原变量的值</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">"defe"</span> <span class="keyword">not</span> <span class="keyword">in</span> cars:  <span class="comment">#检查特定值是否包含在列表中</span></span><br><span class="line">    print(<span class="string">"defe不在列表中"</span>)</span><br><span class="line">print(cars)</span><br><span class="line">print(<span class="string">"\n与，或逻辑符"</span>)</span><br><span class="line">age_0 = <span class="number">21</span></span><br><span class="line">age_1 = <span class="number">40</span></span><br><span class="line">age_2 = <span class="number">35</span></span><br><span class="line"><span class="keyword">if</span> age_0 &lt;= age_1 <span class="keyword">and</span> age_0 &gt;= age_2:</span><br><span class="line">    print(<span class="string">"True——and测试"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"False——and测试"</span>)</span><br><span class="line"><span class="keyword">if</span> age_0&lt;=age_1 <span class="keyword">or</span> age_0&gt;=age_2:</span><br><span class="line">    print(<span class="string">"or测试"</span>)</span><br><span class="line">print(<span class="string">"\n"</span>)</span><br><span class="line"><span class="comment"># if-elif-else：有一个测试就跳过1余下的测试</span></span><br><span class="line">age = <span class="number">15</span></span><br><span class="line"><span class="keyword">if</span>(age&lt;<span class="number">4</span>):</span><br><span class="line">    print(<span class="string">"小于4"</span>)</span><br><span class="line"><span class="keyword">elif</span> age&lt;<span class="number">10</span>:</span><br><span class="line">    print(<span class="string">"小于10"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"大于10"</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">多个elif代码块：</span></span><br><span class="line"><span class="string">if 条件1：</span></span><br><span class="line"><span class="string">   。。。</span></span><br><span class="line"><span class="string">elif 条件2：</span></span><br><span class="line"><span class="string">   。。。</span></span><br><span class="line"><span class="string">elif 条件3：</span></span><br><span class="line"><span class="string">   。。。</span></span><br><span class="line"><span class="string">elif 条件4：</span></span><br><span class="line"><span class="string">   。。。</span></span><br><span class="line"><span class="string">else：    （else可省略）</span></span><br><span class="line"><span class="string">    。。。</span></span><br><span class="line"><span class="string">多个if代码块</span></span><br><span class="line"><span class="string">每个代码块进行独立的测试</span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/5.png" alt></p>
+<hr>
+<h3 id="6-字典"><a href="#6-字典" class="headerlink" title="6.字典"></a>6.字典</h3><h4 id="6-1初始字典"><a href="#6-1初始字典" class="headerlink" title="6.1初始字典"></a>6.1初始字典</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 字典：&#123;&#125;,相关联的键值对：</span></span><br><span class="line">alien_0 = &#123;<span class="string">"color"</span>:<span class="string">"green"</span>,<span class="string">"points"</span>:<span class="number">5</span>&#125;</span><br><span class="line">print(alien_0)</span><br><span class="line">print(alien_0[<span class="string">"color"</span>])  <span class="comment"># 访问字典中的值</span></span><br><span class="line">print(alien_0[<span class="string">"points"</span>])</span><br><span class="line">print(<span class="string">"\n"</span>)</span><br><span class="line"><span class="comment"># 字典是动态结构</span></span><br><span class="line">alien_0[<span class="string">"x_position"</span>] = <span class="number">0</span>  </span><br><span class="line"><span class="comment">#与访问字典类似，键值对的添加顺序与排列顺序不同</span></span><br><span class="line">alien_0[<span class="string">"y_position"</span>] = <span class="number">25</span></span><br><span class="line">print(alien_0)</span><br><span class="line"><span class="comment"># 永远删除键值对</span></span><br><span class="line">print(alien_0)</span><br><span class="line"><span class="keyword">del</span> alien_0[<span class="string">"color"</span>]</span><br><span class="line">print(alien_0)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/6_1.png" alt></p>
+<h4 id="6-3-遍历字典"><a href="#6-3-遍历字典" class="headerlink" title="6.3 遍历字典"></a>6.3 遍历字典</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">user_0 = &#123;</span><br><span class="line">    <span class="string">"username"</span>:<span class="string">"efemi"</span>,</span><br><span class="line">    <span class="string">"first"</span>:<span class="string">"enrico"</span>,</span><br><span class="line">    <span class="string">"last"</span>:<span class="string">"fermi"</span>,</span><br><span class="line">    <span class="string">"second"</span>:<span class="string">"fermi"</span></span><br><span class="line">&#125;</span><br><span class="line">print(user_0)</span><br><span class="line"><span class="comment"># 遍历所有的键值对——方法：items()返回键值对列表</span></span><br><span class="line"><span class="comment"># 键值对的返回顺序与存储顺序不同，只关心关联关系</span></span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> user_0.items():</span><br><span class="line">    print(<span class="string">"\nKey:"</span>+key)</span><br><span class="line">    print(<span class="string">"\nValue:"</span>+value)</span><br><span class="line"><span class="comment"># 显示遍历字典中的所有键——方法：keys()</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> user_0.keys():</span><br><span class="line">    print(<span class="string">"\n关键值为"</span>+key)</span><br><span class="line">print(<span class="string">"-----------------------"</span>)</span><br><span class="line"><span class="comment"># 隐式遍历字典中的所有键键</span></span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> user_0:</span><br><span class="line">    print(<span class="string">"\n关键值为"</span>+key)</span><br><span class="line"><span class="keyword">if</span> <span class="string">"Wu"</span> <span class="keyword">not</span> <span class="keyword">in</span> user_0.keys():  <span class="comment"># keys()返回一个列表包含所有的键值</span></span><br><span class="line">    print(<span class="string">"Wu not in the Dictionary"</span>)</span><br><span class="line">print(<span class="string">"----------"</span>)</span><br><span class="line"><span class="comment"># 按顺序遍历字典中的所有键</span></span><br><span class="line">print(<span class="string">"按顺序打印所有的键："</span>)</span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> sorted(user_0.keys()):  <span class="comment"># keys()返回一个列表包含所有的键值</span></span><br><span class="line">    print(key)</span><br><span class="line">print(<span class="string">"-----------"</span>)</span><br><span class="line"><span class="comment"># 遍历字典中的所有值——values()方法返回列表</span></span><br><span class="line">i=<span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> user_0.values():</span><br><span class="line">    print(<span class="string">"第"</span>+str(i)+<span class="string">"个值为："</span>+value)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">print(i)</span><br><span class="line"><span class="comment"># 集合set()剔除重复项——集合类似于列表，但每个元素是独一无二的</span></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> set(user_0.values()):</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/6.3_png" alt></p>
+<h4 id="6-4嵌套"><a href="#6-4嵌套" class="headerlink" title="6.4嵌套"></a>6.4嵌套</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">print(<span class="string">"字典列表"</span>)</span><br><span class="line">alien_0 = &#123;<span class="string">"coloe"</span>:<span class="string">"red"</span>,<span class="string">"points"</span>:<span class="number">5</span>&#125;</span><br><span class="line">alien_1 = &#123;<span class="string">"coloe"</span>:<span class="string">"green"</span>,<span class="string">"points"</span>:<span class="number">15</span>&#125;</span><br><span class="line">alien_2 = &#123;<span class="string">"coloe"</span>:<span class="string">"blue"</span>,<span class="string">"points"</span>:<span class="number">25</span>&#125;</span><br><span class="line">aliens = [alien_0,alien_1,alien_2]</span><br><span class="line"><span class="keyword">for</span> alien <span class="keyword">in</span> aliens:</span><br><span class="line">    print(alien)</span><br><span class="line">print(<span class="string">"-----------\n在字典中存储列表"</span>)</span><br><span class="line"><span class="comment"># 一个键关联到多个值</span></span><br><span class="line"><span class="comment"># 字典与列表层级不应嵌套太多</span></span><br><span class="line">pizza = &#123;</span><br><span class="line">    <span class="string">"color"</span>:<span class="string">"yellow"</span>,</span><br><span class="line">    <span class="string">"staff"</span>:[<span class="string">"sugar"</span>,<span class="string">"water"</span>,<span class="string">"powder"</span>]</span><br><span class="line">&#125;</span><br><span class="line">print(pizza[<span class="string">"staff"</span>])</span><br><span class="line">print(<span class="string">"--------\n在字典中存储字典"</span>)</span><br><span class="line">users = &#123;</span><br><span class="line">    <span class="string">'user1Ma'</span>:&#123;</span><br><span class="line">        <span class="string">"last"</span>:<span class="string">"Jin"</span>,</span><br><span class="line">        <span class="string">"first"</span>:<span class="string">'Xiang'</span>,</span><br><span class="line">        <span class="string">"location"</span>:<span class="string">"De"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'user2Wu'</span>:&#123;</span><br><span class="line">        <span class="string">"last"</span>:<span class="string">"Jia"</span>,</span><br><span class="line">        <span class="string">"first"</span>:<span class="string">'Fang'</span>,</span><br><span class="line">        <span class="string">"location"</span>:<span class="string">"Lin"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'user3Ma'</span>:&#123;</span><br><span class="line">        <span class="string">"last"</span>:<span class="string">"Jie"</span>,</span><br><span class="line">        <span class="string">"first"</span>:<span class="string">'Tang'</span>,</span><br><span class="line">        <span class="string">"location"</span>:<span class="string">"Ha"</span></span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">print(users)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/6_4.png" alt></p>
+<hr>
+<h3 id="7-用户输入和while循环"><a href="#7-用户输入和while循环" class="headerlink" title="7 用户输入和while循环"></a>7 用户输入和while循环</h3><h4 id="7-1-用户输入"><a href="#7-1-用户输入" class="headerlink" title="7.1 用户输入"></a>7.1 用户输入</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">note =<span class="string">"请输入你的数字："</span></span><br><span class="line">message = input(note)</span><br><span class="line">number = int(message)</span><br><span class="line"><span class="keyword">if</span> number % <span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line">    print(<span class="string">"该数是一个偶数"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"该数是一个奇数"</span>) </span><br><span class="line"><span class="comment"># input函数让程序暂停运行，等待用户输入</span></span><br><span class="line"><span class="comment"># 函数input的参数是提示和说明</span></span><br><span class="line"><span class="comment"># input()返回字符串,可进行强制类型转换int(str)</span></span><br><span class="line"><span class="comment"># 在python2.7获取用户输入用raw_input（）函数，而python2.7中的input函数将输入解读为python代码，并尝试运行他们</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/7_1.png" alt></p>
+<h4 id="7-2-while循环"><a href="#7-2-while循环" class="headerlink" title="7.2 while循环"></a>7.2 while循环</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">prompt =  <span class="string">'请输入你的信息'</span></span><br><span class="line">prompt +=<span class="string">"\n直到输入'quit'停止"</span></span><br><span class="line">print(prompt)</span><br><span class="line">message = <span class="string">""</span></span><br><span class="line">information = <span class="string">""</span></span><br><span class="line"><span class="keyword">while</span>(message!=<span class="string">"quit"</span>):</span><br><span class="line">    message = input(<span class="string">"请输入："</span>)</span><br><span class="line">    <span class="keyword">if</span> message != <span class="string">"quit"</span>:</span><br><span class="line">        information += message</span><br><span class="line">        print(information)</span><br><span class="line">print(information)</span><br><span class="line"><span class="comment"># 使用标志</span></span><br><span class="line"><span class="comment"># 用多个if语句实现不同情况下程序的退出</span></span><br><span class="line">active = <span class="literal">True</span></span><br><span class="line"><span class="keyword">while</span> active:</span><br><span class="line">    message_ac = input(<span class="string">"测试：输入你的消息："</span>)</span><br><span class="line">    <span class="keyword">if</span> message_ac == <span class="string">"quit"</span>:</span><br><span class="line">        active = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> message_ac != <span class="string">"quit"</span>:</span><br><span class="line">        print(message_ac)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/7_2.png" alt></p>
+<h4 id="7-3-使用while-循环来处理列表和字典"><a href="#7-3-使用while-循环来处理列表和字典" class="headerlink" title="7.3 使用while 循环来处理列表和字典"></a>7.3 使用while 循环来处理列表和字典</h4><blockquote>
+<p>for循环不应修改其中的元素，否则将导致python难以跟踪其中的元素</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 用while完成对列表的修改</span></span><br><span class="line">unconfired_users = [<span class="string">'Ma'</span>,<span class="string">'Zhao'</span>,<span class="string">"Wu"</span>]</span><br><span class="line">confired_users = []</span><br><span class="line"><span class="keyword">while</span> unconfired_users:  <span class="comment"># 判断列表是否为空</span></span><br><span class="line">    unconfired_users_pop = unconfired_users.pop()</span><br><span class="line">    print(unconfired_users_pop+<span class="string">"该用户已接受验证"</span>)</span><br><span class="line">    confired_users.append(unconfired_users_pop)</span><br><span class="line">print(unconfired_users)</span><br><span class="line">print(confired_users)</span><br><span class="line"><span class="comment"># while与字典</span></span><br><span class="line">responses = &#123;&#125;</span><br><span class="line">response_active = <span class="literal">True</span></span><br><span class="line"><span class="keyword">while</span> response_active:</span><br><span class="line">    name = input(<span class="string">"你的名字是："</span>)</span><br><span class="line">    response = input(<span class="string">"你的回答是："</span>)</span><br><span class="line">    responses[name] = response</span><br><span class="line">    last = input(<span class="string">"还有人会回答问题吗："</span>)</span><br><span class="line">    <span class="keyword">if</span> last == <span class="string">"no"</span>:</span><br><span class="line">        response_active = <span class="literal">False</span></span><br><span class="line"><span class="keyword">for</span> name,response <span class="keyword">in</span> responses.items():</span><br><span class="line">    print(name)</span><br><span class="line">    print(response)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/7_3.png" alt></p>
+<hr>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/05/17/git%E9%83%A8%E7%BD%B2%E9%97%AE%E9%A2%98/">
+        <span>git部署</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-if语句"><span class="toc-number">1.</span> <span class="toc-text">5.if语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-字典"><span class="toc-number">2.</span> <span class="toc-text">6.字典</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1初始字典"><span class="toc-number">2.1.</span> <span class="toc-text">6.1初始字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-3-遍历字典"><span class="toc-number">2.2.</span> <span class="toc-text">6.3 遍历字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-4嵌套"><span class="toc-number">2.3.</span> <span class="toc-text">6.4嵌套</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-用户输入和while循环"><span class="toc-number">3.</span> <span class="toc-text">7 用户输入和while循环</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#7-1-用户输入"><span class="toc-number">3.1.</span> <span class="toc-text">7.1 用户输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-2-while循环"><span class="toc-number">3.2.</span> <span class="toc-text">7.2 while循环</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-3-使用while-循环来处理列表和字典"><span class="toc-number">3.3.</span> <span class="toc-text">7.3 使用while 循环来处理列表和字典</span></a></li></ol></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2020 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Sndow
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
