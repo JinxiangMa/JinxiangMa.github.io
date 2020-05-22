@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    
+    <meta name="renderer" content="webkit"/>
+    <meta name="force-rendering" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <script>if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode)) window.location.href="https://support.dmeng.net/upgrade-your-browser.html?referrer="+encodeURIComponent(window.location.href); </script>
+    
+    
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Regular.woff2" as="font">
+        <link rel="preload" crossorigin="crossorigin" href="/fonts/roboto/Roboto-Bold.woff2" as="font">
+    
+    
+    
+        <link rel="shortcut icon" href="/icons/favicon.ico">
+    
+    
+    
+<link rel="stylesheet" href="/css/mdui.min.css">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/iconfont.css">
+
+    
+    
+
+    
+        <script data-ad-client="ca-" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+    
+    
+    <title>
+        
+            《python编程——从入门到实践》 笔记(三) | Hexo
+        
+    </title>
+    
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body class="mdui-drawer-body-left mdui-appbar-with-toolbar mdui-theme-primary-teal mdui-theme-accent-blue">
+  
+  <header class="mdui-appbar mdui-appbar-fixed">
+  <div id="toolbar" class="mdui-toolbar mdui-color-theme">
+    <button class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="iconfont icon-menu"></i></button>
+    <a href="/" class="mdui-typo-headline">Hexo</a>
+    <a href="/" class="header-subtitle mdui-typo-headline"></a>
+    <div class="mdui-toolbar-spacer"></div>
+    <button class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'search'}"><i class="iconfont icon-search"></i></button>
+  </div>
+</header>
+
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字" onfocus="listenSearchFunc()">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+
+  <aside id="sidebar" class="mdui-drawer">
+    <div class="mdui-tab" mdui-tab>
+        <a href="#sidebar-tab1" id="sidebartab" class="mdui-ripple mdui-tab-active">站点概览</a>
+        <a href="#sidebar-tab2" id="sidebartab" class="mdui-ripple">关于</a>
+    </div>
+
+    
+    <div id="sidebar-tab1" class="mdui-p-a-2">
+        <div class="mdui-list">
+            
+                
+                <a href="/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-home"></i>
+                    </div>
+                    <div class="mdui-list-item-content">主页</div>
+                </a>
+            
+                
+                <a href="/tags/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-bookmark"></i>
+                    </div>
+                    <div class="mdui-list-item-content">标签</div>
+                </a>
+            
+                
+                <a href="/categories/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-folder"></i>
+                    </div>
+                    <div class="mdui-list-item-content">分类</div>
+                </a>
+            
+                
+                <a href="/archives/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-archive"></i>
+                    </div>
+                    <div class="mdui-list-item-content">归档</div>
+                </a>
+            
+                
+                <a href="/about/" class="mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-user"></i>
+                    </div>
+                    <div class="mdui-list-item-content">关于</div>
+                </a>
+            
+            <div class="mdui-list-item mdui-ripple">
+                <div class="mdui-list-item-icon">
+                    <i class="iconfont icon-moon"></i>
+                </div>
+                <div class="mdui-list-item-content">夜间模式</div>
+                <label class="mdui-switch" id="darkmode">
+                  <input type="checkbox" id="nightmode_switch"/>
+                  <i class="mdui-switch-icon"></i>
+                </label>
+            </div>           
+        </div>
+    </div>
+
+    
+    <div id="sidebar-tab2" class="mdui-p-a-2">
+        <div class="sidebar-overview">
+            <div class="sidebar-avatar">
+                
+                    <img src="/images/avatar.png"/>
+                
+            </div>
+            <div class="sidebar-author-name">Sndow</div>
+            <div class="sidebar-description">极客</div>
+        </div>
+        <div class="sidebar-links">
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-mail"></i></span>
+                    <a href="/1521990341@qq.com" class="mdui-chip-title">E-Mail</a>
+                </div>
+            
+                
+                <div class="mdui-chip">
+                    <span class="mdui-chip-icon"><i class="iconfont icon-github"></i></span>
+                    <a href="https://github.com/jinxiangma" target="_blank" rel="noopener" class="mdui-chip-title">GitHub</a>
+                </div>
+            
+        </div>
+        <ul class="mdui-list" mdui-collapse="{accordion: true}">
+            <li class="mdui-collapse-item">
+                <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+                    <div class="mdui-list-item-icon">
+                        <i class="iconfont icon-link"></i>
+                    </div>
+                    <div class="mdui-list-item-content">友情链接</div>
+                    <div class="mdui-collapse-item-arrow">
+                        <i class="mdui-list-item-icon iconfont icon-angle-down"></i>
+                    </div>
+                </div>
+                <ul class="mdui-collapse-item-body mdui-list mdui-list-dense">
+                    
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="mdui-divider"></div>
+    
+    
+</aside>
+  
+  <main id="main-contain" class="mdui-container mdui-m-t-5">
+    <article id="article" class="mdui-card mdui-p-b-2 mdui-m-b-5">
+  <header class="mdui-card-media">
+    
+    
+      <div class="post-header"> 
+  <a class="post-header-title" href="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/">《python编程——从入门到实践》 笔记(三)</a>
+  <div class="post-header-meta">
+    <span>
+      <span class="iconfont icon-calendar"></span>
+      发布于:&nbsp;2020-05-22
+    </span>
+    <span>
+      <span class="iconfont icon-calendar-check"></span>
+      更新于:&nbsp;2020-05-22
+    </span>
+    <span>
+      <span class="iconfont icon-folder"></span>
+      分类于:&nbsp;<a class="category-link" href="/categories/python%E7%BC%96%E7%A8%8B/">python编程</a>
+    </span>
+    
+      <span>
+        <span class="iconfont icon-eye"></span>
+        阅读次数:&nbsp;
+        <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv"></span></span>
+      </span>
+    
+  </div>
+</div>   
+    
+
+
+
+    
+    
+    <div class="mdui-card-menu">
+    
+      <button class="mdui-btn mdui-btn-icon mdui-text-color-teal" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="iconfont icon-share"></i></button>
+      <ul class="mdui-menu" id="share_menu">
+        <li class="mdui-menu-item">
+          <a href="http://service.weibo.com/share/share.php?appkey=&title=《python编程——从入门到实践》 笔记(三)&url=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/&pic=http://yoursite.com/null&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://twitter.com/intent/tweet?text=《python编程——从入门到实践》 笔记(三)&url=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/&via=Sndow" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://plus.google.com/share?url=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/&title=《python编程——从入门到实践》 笔记(三)" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="http://connect.qq.com/widget/shareqq/index.html?site=Hexo&title=《python编程——从入门到实践》 笔记(三)&summary=极客&pics=http://yoursite.com/null&url=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+        </li>
+        <li class="mdui-menu-item">
+          <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/&text=《python编程——从入门到实践》 笔记(三)" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+        </li>
+      </ul>
+    
+  </div>
+  </header>
+  
+  
+  
+  
+  <div class="post-tags">
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/python%E7%BC%96%E7%A8%8B/ >python编程</a>
+      </i>
+    
+      <i class="iconfont icon-tag">
+        <a rel="tag" href = /tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ >读书笔记</a>
+      </i>
+    
+  </div>
+
+  
+  <div class="mdui-card-content mdui-typo mdui-p-x-4">
+    <p><strong>累，乏，困，丧</strong> </p>
+<a id="more"></a>
+<h3 id="8-函数"><a href="#8-函数" class="headerlink" title="8 函数"></a>8 函数</h3><blockquote>
+<p>代码块与主程序分离</p>
+</blockquote>
+<h4 id="8-2-函数传参"><a href="#8-2-函数传参" class="headerlink" title="8.2 函数传参"></a>8.2 函数传参</h4><blockquote>
+<p>必须先列出没有默认值的形参<br><img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/8_2.png" alt></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describ_pet</span><span class="params">(petName,petType)</span>:</span></span><br><span class="line">    <span class="string">"""显示宠物的信息"""</span></span><br><span class="line">    print(<span class="string">"pet's name is "</span>+ petName)</span><br><span class="line">    print(<span class="string">"pet's type is "</span>+ petType)</span><br><span class="line">    print()</span><br><span class="line">describ_pet(<span class="string">"Dig"</span>,<span class="string">"dog"</span>)   <span class="comment"># 按顺序位置传参</span></span><br><span class="line">describ_pet(petName=<span class="string">"Kis"</span>,petType=<span class="string">"cat"</span>)  <span class="comment"># 关键字传参：在实参中将名称和值关联起来</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认参数,有参数就被覆盖</span></span><br><span class="line"><span class="comment"># 其默认实参一般为空字符串，放到参数列表末尾，在代码块中加if语句进行判断</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">describ_pet_test</span><span class="params">(petName,petType=<span class="string">"dog"</span>)</span>:</span></span><br><span class="line">    <span class="string">"""显示宠物的信息"""</span></span><br><span class="line">    print(<span class="string">"pet's name is "</span>+ petName)</span><br><span class="line">    print(<span class="string">"pet's type is "</span>+ petType)</span><br><span class="line">describ_pet_test(<span class="string">"Ped"</span>)</span><br><span class="line">describ_pet_test(<span class="string">"Pat"</span>,<span class="string">"cat"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/8_21.png" alt></p>
+<hr>
+<h4 id="8-3-函数操作"><a href="#8-3-函数操作" class="headerlink" title="8.3 函数操作"></a>8.3 函数操作</h4><ul>
+<li>返回字典</li>
+<li>传递列表<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 用函数对列表进行永久性修改</span></span><br><span class="line"><span class="comment"># 每个函数都应负责一项具体的任务</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_models</span><span class="params">(unprinted_designs,completede_models)</span>:</span></span><br><span class="line">    <span class="keyword">while</span> unprinted_designs:</span><br><span class="line">        completede_model = unprinted_designs.pop()</span><br><span class="line">        print(<span class="string">"已经完成："</span>+ completede_model)</span><br><span class="line">        completede_models.append(completede_model)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_completed</span><span class="params">(completede_models)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> completede_model <span class="keyword">in</span> completede_models:</span><br><span class="line">        print(<span class="string">"已经打印了："</span>+completede_model)</span><br><span class="line">unprinted = [<span class="string">"car"</span>,<span class="string">"house"</span>,<span class="string">"robot"</span>]</span><br><span class="line">completed = []</span><br><span class="line"><span class="comment"># 建立列表副本，保存原列表，考虑时间和内存</span></span><br><span class="line">print_models(unprinted[:],completed)</span><br><span class="line">show_completed(unprinted)</span><br><span class="line">show_completed(completed)</span><br><span class="line">print(unprinted)</span><br><span class="line">print(completed)</span><br></pre></td></tr></table></figure>
+<img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/8_3.png" alt></li>
+</ul>
+<h4 id="8-5-传递任意数量的参数"><a href="#8-5-传递任意数量的参数" class="headerlink" title="8.5 传递任意数量的参数"></a>8.5 传递任意数量的参数</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 形参名* items创建一个名为items的空元组，将所有的参数封装到这个元组中</span></span><br><span class="line"><span class="comment"># 将接纳任意实参的形参放在最后</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">stuff</span><span class="params">(size,* items)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        print(item)</span><br><span class="line">    print(items)</span><br><span class="line">stuff(<span class="number">10</span>,<span class="string">"milk"</span>,<span class="string">"orange"</span>,<span class="string">"banana"</span>)</span><br><span class="line">print()</span><br><span class="line">stuff(<span class="number">12</span>,<span class="string">"mear"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># **user_info创建名为user_info的空字典，将所有键值对封装</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">users</span><span class="params">(first,last,**user_info)</span>:</span></span><br><span class="line">    profile = &#123;&#125;</span><br><span class="line">    profile[<span class="string">"last_name"</span>] = last</span><br><span class="line">    profile[<span class="string">"first_name"</span>]= first</span><br><span class="line">    <span class="keyword">for</span> key,value <span class="keyword">in</span> user_info.items():</span><br><span class="line">        profile[key] = value</span><br><span class="line">    <span class="keyword">return</span> profile</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 注意键值对的传递方式</span></span><br><span class="line">users_return = users(<span class="string">"Jinxiang"</span>,<span class="string">"Ma"</span>,address=<span class="string">"De"</span>,tel=<span class="string">"3065"</span>)</span><br><span class="line">print(users_return)</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/8_5.png" alt></p>
+<h4 id="将函数储存在模块中"><a href="#将函数储存在模块中" class="headerlink" title="将函数储存在模块中"></a>将函数储存在模块中</h4><p><strong>所有的import语句都应放在文件开头，注释除外</strong></p>
+<blockquote>
+<p>模块是扩展名为.py的文件</p>
+</blockquote>
+<ul>
+<li><p>导入整个模块：</p>
+<blockquote>
+<p>（函数在A文件中）在主文件中：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 相当于：打开A.py，将所有的函数复制到主文件中</span></span><br><span class="line"><span class="keyword">import</span> A</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>使用： A.函数名(参数。。。)</strong></p>
+</blockquote>
+</li>
+<li><p>导入特定的函数</p>
+<blockquote>
+<p>from 文件名 import 函数1，函数2，函数3</p>
+</blockquote>
+</li>
+<li><p><em>使用：函数（参数列表） *</em></p>
+</li>
+<li><p>使用as给模块指定别名</p>
+<blockquote>
+<p>import 文件A as A<br>使代码更简洁</p>
+</blockquote>
+</li>
+<li><p>导入模块中的所有函数</p>
+<blockquote>
+<p>from 文件A  import*<br><strong>使用：直接使用函数，无需点号</strong><br><strong>不建议使用，防止模块函数名与自己编写的函数名重名：重名覆盖函数</strong></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="9-类"><a href="#9-类" class="headerlink" title="9 类"></a>9 类</h3><blockquote>
+<ul>
+<li>对象都有的通用行为，可根据需要赋予每个对象独特的个性</li>
+<li>实例化：创建对象</li>
+<li>类名：首字母大写</li>
+<li>在python 2.7中创建类：</li>
+</ul>
+</blockquote>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ClassName</span><span class="params">(object)</span>:</span></span><br><span class="line">     ---snip---</span><br></pre></td></tr></table></figure>
+<h4 id="9-1-创建和使用类"><a href="#9-1-创建和使用类" class="headerlink" title="9.1 创建和使用类"></a>9.1 创建和使用类</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span>  </span><br><span class="line">    <span class="comment"># 特殊方法，每当创建实例时自动运行</span></span><br><span class="line">    <span class="comment"># 开头与结尾的下划线，防止与普通方法重名</span></span><br><span class="line">    <span class="comment"># 形参self必不可少，且位于最前面</span></span><br><span class="line">    <span class="comment"># 每个与类相关联的方法自动传递实参self，它指向实例的引用，可让实例访问类中的属性和方法</span></span><br><span class="line">    <span class="comment"># 以self为前缀的变量可供类中的任何方法使用</span></span><br><span class="line">        self.name = name</span><br><span class="line">        <span class="comment"># 设置属性</span></span><br><span class="line">        self.age = age</span><br><span class="line">        self.color = <span class="string">"black"</span>   <span class="comment"># 给属性设置默认值</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sit</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 不需要额外的信息，只有一个形参self来访问属性</span></span><br><span class="line">        print(self.name.title()+<span class="string">" is now sitting"</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">roll</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.name.title()+<span class="string">" rolling over"</span>)</span><br><span class="line">my_dog = Dog(<span class="string">"wille"</span>,<span class="number">19</span>)  <span class="comment"># _init_方法自动返回一个相关类的实例</span></span><br><span class="line">print(<span class="string">"-------"</span>)</span><br><span class="line">print(<span class="string">"访问属性："</span>)</span><br><span class="line">print(my_dog.name)</span><br><span class="line">print(my_dog.age)</span><br><span class="line">print(my_dog.color)</span><br><span class="line">print(<span class="string">"--------"</span>)</span><br><span class="line">print(<span class="string">"调用方法："</span>)</span><br><span class="line">my_dog.roll()</span><br><span class="line">my_dog.sit()</span><br><span class="line"><span class="comment"># 可根据一个类创建任意数量的实例，用不同的变量/字典/列表</span></span><br></pre></td></tr></table></figure>
+<h4 id="9-2-使用类和实例"><a href="#9-2-使用类和实例" class="headerlink" title="9.2 使用类和实例"></a>9.2 使用类和实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,make,model,year)</span>:</span></span><br><span class="line">        self.make = make</span><br><span class="line">        self.model = model</span><br><span class="line">        self.year = year</span><br><span class="line">        self.meter_reading = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read_meter</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"This car has "</span>+ str(self.meter_reading)+ <span class="string">" meters"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">modify</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.meter_reading = value+self.meter_reading</span><br><span class="line">car1 = Car(<span class="string">"Wu"</span>,<span class="string">"A"</span>,<span class="number">2</span>)</span><br><span class="line">print(car1.meter_reading)</span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"修改属性的值"</span>)</span><br><span class="line">print(<span class="string">"方法1：直接修改属性的值："</span>)</span><br><span class="line">car1.meter_reading = <span class="number">23</span></span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"方法2：通过方法修改属性的值：（创建修改属性的方法）"</span>)</span><br><span class="line">car1.modify(<span class="number">45</span>)</span><br><span class="line">print(car1.meter_reading)</span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"方法3：通过方法对属性的值进行递增："</span>)</span><br><span class="line">car1.modify(<span class="number">10</span>)</span><br><span class="line">car1.read_meter()</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/9_2.png" alt></p>
+<h4 id="9-3-继承"><a href="#9-3-继承" class="headerlink" title="9.3 继承"></a>9.3 继承</h4><blockquote>
+<p>子类获得父类的所有属性和方法，还可进行扩展<br>父类必须包含在当前文件中，且位于子类前面</p>
+</blockquote>
+<blockquote>
+<p>python 2.7的继承</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">super(子类名，self)._init_(make,model,year)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Battery</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,battery_size=<span class="number">70</span>)</span>:</span></span><br><span class="line">        self.battery_size = battery_size</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">describe_battery_size</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"This car's battery size is "</span>+str(self.battery_size))</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,make,model,year)</span>:</span></span><br><span class="line">        self.make = make</span><br><span class="line">        self.model = model</span><br><span class="line">        self.year = year</span><br><span class="line">        self.meter_reading = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read_meter</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"This car has "</span>+ str(self.meter_reading)+ <span class="string">" meters"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">modify</span><span class="params">(self,value)</span>:</span></span><br><span class="line">        self.meter_reading = value+self.meter_reading</span><br><span class="line">car1 = Car(<span class="string">"Wu"</span>,<span class="string">"A"</span>,<span class="number">2</span>)</span><br><span class="line">print(car1.meter_reading)</span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"修改属性的值"</span>)</span><br><span class="line">print(<span class="string">"方法1：直接修改属性的值："</span>)</span><br><span class="line">car1.meter_reading = <span class="number">23</span></span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"方法2：通过方法修改属性的值：（创建修改属性的方法）"</span>)</span><br><span class="line">car1.modify(<span class="number">45</span>)</span><br><span class="line">print(car1.meter_reading)</span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"方法3：通过方法对属性的值进行递增："</span>)</span><br><span class="line">car1.modify(<span class="number">10</span>)</span><br><span class="line">car1.read_meter()</span><br><span class="line">print(<span class="string">"----------------------"</span>)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ElectricCar</span><span class="params">(Car)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,make,model,year)</span>:</span> <span class="comment"># 方法_int_接受创建实例所需的信息</span></span><br><span class="line">        super().__init__(make,model,year) </span><br><span class="line">        self.speed = <span class="number">70</span>  <span class="comment"># 给子类添加另外的属性，父类实例不包含该属性</span></span><br><span class="line">        <span class="comment"># super将父类与子类关联起来，子类继承父类的所有属性</span></span><br><span class="line">        self.battery_size= Battery()</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">describe_speed</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"This car's speed is "</span> +str(self.speed) )</span><br><span class="line">my_electricCar = ElectricCar(<span class="string">"Ma"</span>,<span class="string">"B"</span>,<span class="number">13</span>)</span><br><span class="line"><span class="comment"># print(my_electricCar.read_meter())</span></span><br><span class="line"><span class="comment"># 反复print时在输出时有None</span></span><br><span class="line">my_electricCar.read_meter()</span><br><span class="line">my_electricCar.describe_speed()</span><br><span class="line"><span class="comment"># 重写父类中的方法：</span></span><br><span class="line"><span class="comment"># 在子类中创建与父类方法同名的方法，调用子类方法时忽略父类方法</span></span><br><span class="line">print(<span class="string">"----------------------"</span>)</span><br><span class="line">print(<span class="string">"将实例用作属性："</span>)</span><br><span class="line">car2 = ElectricCar(<span class="string">"Hui"</span>,<span class="string">"C"</span>,<span class="number">18</span>)</span><br><span class="line">car2.battery_size.describe_battery_size()</span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/9_3.png" alt></p>
+<hr>
+<h4 id="9-4-导入类"><a href="#9-4-导入类" class="headerlink" title="9.4 导入类"></a>9.4 导入类</h4><ul>
+<li>导入单个类<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> car <span class="keyword">import</span> Car</span><br><span class="line"><span class="comment"># 从car.py文件中导入类Car</span></span><br></pre></td></tr></table></figure></li>
+<li>一个模块中有多个类，类之间存在关联——只导入需要创建实例的类</li>
+<li>需要导入多个类——创建多种实例<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 文件 <span class="keyword">import</span> 类<span class="number">1</span>，类<span class="number">2</span>，。。。</span><br></pre></td></tr></table></figure></li>
+<li>导入整个模块<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 文件名</span><br><span class="line">实例<span class="number">1</span> = 文件名.类（参数列表）</span><br></pre></td></tr></table></figure></li>
+<li>导入模块中的所有类<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> 文件名 <span class="keyword">import</span>*</span><br><span class="line"><span class="comment"># 不赞成使用</span></span><br><span class="line"><span class="comment"># 不清楚使用了哪些类</span></span><br><span class="line"><span class="comment">#同名类出现问题</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h4 id="9-5-Python标准库"><a href="#9-5-Python标准库" class="headerlink" title="9.5 Python标准库"></a>9.5 Python标准库</h4><blockquote>
+<p>一组模块，安装的python都包含它</p>
+</blockquote>
+<hr>
+<h3 id="10-文件和异常"><a href="#10-文件和异常" class="headerlink" title="10 文件和异常"></a>10 文件和异常</h3><p><strong>在Windows中，系统有时候能正确解读文件路径中的斜杠，若不符合预期，用反斜杠</strong></p>
+<h4 id="10-1-读取文件"><a href="#10-1-读取文件" class="headerlink" title="10.1 读取文件"></a>10.1 读取文件</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">print(<span class="string">"读取整个文件："</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"digst.txt"</span>) <span class="keyword">as</span> f:  </span><br><span class="line"><span class="comment"># 以任何方式使用文件，都先要打开文件</span></span><br><span class="line"><span class="comment">#open返回表示文件digst.txt及其内容的对象</span></span><br><span class="line"><span class="comment"># with在不再需要访问文件时将其关闭，python在合适的时候将文件关闭</span></span><br><span class="line"><span class="comment"># 用close，程序出现bug;未执行close（），文件将不会关闭</span></span><br><span class="line">    contents = f.read() <span class="comment"># 将文件的全部内容作为一个字符串</span></span><br><span class="line">print(type(contents))</span><br><span class="line">print(<span class="string">"逐行读取文件："</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"digst.txt"</span>) <span class="keyword">as</span> f: <span class="comment"># with：让python妥善地打开和关闭文件</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:   <span class="comment"># 以换行符为分开的标志</span></span><br><span class="line">        print(line)  <span class="comment"># 每行末尾有一个换行符</span></span><br><span class="line">print(<span class="string">"创建一个包含各行的列表："</span>)</span><br><span class="line">print(<span class="string">"方法1："</span>)</span><br><span class="line">lines = []</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"digst.txt"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">        lines.append(line.rstrip()) </span><br><span class="line">print(lines)</span><br><span class="line">print(<span class="string">"方法2："</span>)</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"digst.txt"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    lines_list = f.readlines()  <span class="comment"># readlines()从文件中读取每一行，存储在一个列表中</span></span><br><span class="line">print(lines_list)</span><br><span class="line">print(<span class="string">"---------------"</span>)</span><br><span class="line">print(<span class="string">"使用文件中的内容："</span>)</span><br><span class="line">str_digst = <span class="string">""</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines_list:</span><br><span class="line">    str_digst += line.strip()</span><br><span class="line">digst_ranges = len(str_digst)  <span class="comment"># 得到位数:包含小数点</span></span><br><span class="line"><span class="comment"># digst = int(str_digst) 非纯数字组成的字符串强转为整型会报错</span></span><br><span class="line">digst = float(str_digst)</span><br><span class="line">print(digst)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># if str1 in str2  判断str1是否在str2内</span></span><br><span class="line"><span class="comment"># 字符串也满足切片</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/10_1.png" alt></p>
+<h4 id="10-2-写入文件"><a href="#10-2-写入文件" class="headerlink" title="10.2 写入文件"></a>10.2 写入文件</h4><ul>
+<li>读取模式： “r”</li>
+<li>写入模式：“w”</li>
+<li>附加模式：“a”</li>
+<li>读取+写入：“r+”</li>
+<li>默认模式：只读模式</li>
+<li><em>文件不存在，open时创建；文件已存在，“w”时返回文件对象前清空文件*</em><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">filename = <span class="string">"digst.txt"</span></span><br><span class="line"><span class="keyword">with</span> open(filename,<span class="string">"w"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">"I love you!\n"</span>)  <span class="comment"># 手动添加换行</span></span><br><span class="line">    f.write(<span class="string">"You are a goood man!\n"</span>)</span><br><span class="line"><span class="keyword">with</span> open(filename,<span class="string">"a"</span>) <span class="keyword">as</span> f:  <span class="comment"># 附加模式不覆盖原文件的内容</span></span><br><span class="line">    f.write(<span class="string">"No,we are not fit"</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="10-3-异常"><a href="#10-3-异常" class="headerlink" title="10.3 异常"></a>10.3 异常</h4><ul>
+<li>管理程序执行期间发生的错误：创建异常对象</li>
+<li>try-except代码块：出现异常，继续执行，显示错误信息</li>
+<li>无异常处理，会显示traceback，恶意用户可知道文件信息和错误部分<h5 id="处理ZeroDivisionError异常"><a href="#处理ZeroDivisionError异常" class="headerlink" title="处理ZeroDivisionError异常"></a>处理ZeroDivisionError异常</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">5</span>/<span class="number">0</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:         <span class="comment"># 无错跳过，有错执行</span></span><br><span class="line">    print(<span class="string">"You can not divide by 0!"</span>)  <span class="comment"># 指明错误原因</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"依赖于try代码块成功执行的代码"</span>)</span><br><span class="line">print(<span class="string">"继续执行！"</span>)</span><br><span class="line">print()</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    print(<span class="number">5</span>/<span class="number">6</span>)</span><br><span class="line"><span class="keyword">except</span> ZeroDivisionError:         <span class="comment"># 无错跳过，有错执行</span></span><br><span class="line">    print(<span class="string">"You can not divide by 0!"</span>)  <span class="comment"># 指明错误原因</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"依赖于try代码块成功执行的代码"</span>)</span><br><span class="line">print(<span class="string">"继续执行！"</span>)</span><br></pre></td></tr></table></figure>
+<img src="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/10_3.png" alt><h5 id="处理FileNotFoundError异常"><a href="#处理FileNotFoundError异常" class="headerlink" title="处理FileNotFoundError异常"></a>处理FileNotFoundError异常</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 可对大量文件进行相同操作，而不用考虑文件不存在导致程序停止的问题</span></span><br><span class="line">filename = <span class="string">"tigst.txt"</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">        message=f.read()</span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    <span class="comment"># pass     </span></span><br><span class="line">    <span class="comment"># 出现异常，什么都不会发生，继续执行</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">"problem.txt"</span>,<span class="string">"w"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        f.write(filename)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(message)</span><br><span class="line">    words = message.split()  <span class="comment">#生成一个列表</span></span><br><span class="line">    num_words = len(words)</span><br><span class="line">    print(num_words)</span><br></pre></td></tr></table></figure>
+<h4 id="10-4-存储数据"><a href="#10-4-存储数据" class="headerlink" title="10.4 存储数据"></a>10.4 存储数据</h4></li>
+<li>将python数据结构转储到文件中</li>
+<li>在python程序间分享数据</li>
+<li>非python专用<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="comment"># 注意json.dump()和json.load()的参数</span></span><br><span class="line">numbers = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</span><br><span class="line">filename = <span class="string">"number.json"</span></span><br><span class="line"><span class="keyword">with</span> open(filename,<span class="string">"w"</span>) <span class="keyword">as</span> f:  <span class="comment"># 写入模式：没有就创建</span></span><br><span class="line">    json.dump(numbers,f)       </span><br><span class="line">    <span class="comment"># 将numbers列表完全存储到number.json文件中</span></span><br><span class="line"><span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">    number = json.load(f)</span><br><span class="line">print(number)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">filename = <span class="string">"name.json"</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">        username = json.load(f)</span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    username = input(<span class="string">"Please input your name:"</span>)</span><br><span class="line">    <span class="keyword">with</span> open(filename,<span class="string">"w"</span>) <span class="keyword">as</span> f:</span><br><span class="line">        json.dump(username,f)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"Your name is "</span>+ username)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="11-代码测试"><a href="#11-代码测试" class="headerlink" title="11 代码测试"></a>11 代码测试</h3><blockquote>
+<p>通过测试，确定代码面对各种输入都能按要求工作</p>
+</blockquote>
+
+  </div>
+  <!--文末结束语-->
+  
+    <div style="text-align:center;color: #ccc;font-size:24px;"> --- 本文结束 <i class="iconfont icon-heartbeat" style="font-size:24px;"></i> The End --- </div>
+  
+  <!--页脚广告-->
+  
+  <div class="mdui-divider"></div>
+  
+  <nav>
+    
+    
+      <a rel="next" class="post-nav-item mdui-float-right" href="/2020/05/19/python%E7%BC%96%E7%A8%8B%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5%20%E7%AC%94%E8%AE%B0(%E4%BA%8C)/">
+        <span>《python编程—从入门到实践》笔记(二)</span>
+        <i class="iconfont icon-angle-right"></i>
+      </a>
+    
+  </nav>
+</article>
+
+
+
+
+  <div class="toc-button"  style="z-index: 100;">
+    <button class="mdui-fab mdui-ripple mdui-color-teal" mdui-menu="{target: '#toc'}"><i class="iconfont icon-list"></i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item">
+        <a href="/2020/05/22/python%E7%BC%96%E7%A8%8B%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5-%E7%AC%94%E8%AE%B0(%E4%B8%89)/" id="toc-header" class="mdui-ripple">文章目录</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#8-函数"><span class="toc-number">1.</span> <span class="toc-text">8 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-函数传参"><span class="toc-number">1.1.</span> <span class="toc-text">8.2 函数传参</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-函数操作"><span class="toc-number">1.2.</span> <span class="toc-text">8.3 函数操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-5-传递任意数量的参数"><span class="toc-number">1.3.</span> <span class="toc-text">8.5 传递任意数量的参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将函数储存在模块中"><span class="toc-number">1.4.</span> <span class="toc-text">将函数储存在模块中</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-类"><span class="toc-number">2.</span> <span class="toc-text">9 类</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#9-1-创建和使用类"><span class="toc-number">2.1.</span> <span class="toc-text">9.1 创建和使用类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-2-使用类和实例"><span class="toc-number">2.2.</span> <span class="toc-text">9.2 使用类和实例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-3-继承"><span class="toc-number">2.3.</span> <span class="toc-text">9.3 继承</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-4-导入类"><span class="toc-number">2.4.</span> <span class="toc-text">9.4 导入类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-5-Python标准库"><span class="toc-number">2.5.</span> <span class="toc-text">9.5 Python标准库</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-文件和异常"><span class="toc-number">3.</span> <span class="toc-text">10 文件和异常</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-1-读取文件"><span class="toc-number">3.1.</span> <span class="toc-text">10.1 读取文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-2-写入文件"><span class="toc-number">3.2.</span> <span class="toc-text">10.2 写入文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-3-异常"><span class="toc-number">3.3.</span> <span class="toc-text">10.3 异常</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#处理ZeroDivisionError异常"><span class="toc-number">3.3.1.</span> <span class="toc-text">处理ZeroDivisionError异常</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#处理FileNotFoundError异常"><span class="toc-number">3.3.2.</span> <span class="toc-text">处理FileNotFoundError异常</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-4-存储数据"><span class="toc-number">3.4.</span> <span class="toc-text">10.4 存储数据</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-代码测试"><span class="toc-number">4.</span> <span class="toc-text">11 代码测试</span></a></li></ol>
+      </li>
+    </ul>
+  </div>
+
+
+
+    <div id="comment" class="mdui-card mdui-p-a-2 mdui-m-b-5">
+      <div class="mdui-tab" mdui-tab>
+        
+          <a href="#comment-tab0" class="mdui-ripple">gitalk</a>
+        
+          <a href="#comment-tab1" class="mdui-ripple">livere</a>
+        
+      </div>
+      
+        <div id="comment-tab0" class="mdui-p-a-2">
+          <div id="gitalk-container"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+<script>
+  var gitalk = new Gitalk({
+    clientID: '',
+    clientSecret: '',
+    repo: '',
+    owner: '',
+    admin: [''],
+    id:  md5(location.pathname) ,
+    distractionFreeMode: 'true',
+  });
+  gitalk.render('gitalk-container');
+</script>
+        </div>
+      
+        <div id="comment-tab1" class="mdui-p-a-2">
+          <div id="lv-container" data-id="city" data-uid="">
+  <script type="text/javascript">
+    (function (d, s) {
+      var j, e = d.getElementsByTagName(s)[0];
+      if (typeof LivereTower === 'function') { return; }
+      j = d.createElement(s);
+      j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+      j.async = true;
+      e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  </script>
+  <noscript>Please enable JavaScript to view the comments powered by LiveRe.</noscript>
+</div>
+        </div>
+      
+    </div>
+
+  </main>
+  <footer id="footer" class="mdui-text-center mdui-m-t-5 mdui-p-b-2 mdui-p-t-4 mdui-color-theme">
+  <div class="mdui-container">
+    <div class="mdui-row">
+      
+        <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank"></a>
+      
+      <span>
+        &copy; 2015 - 2020 
+        
+          <span style="color:#d9333f" class="iconfont icon-heart"></span>
+        
+        Sndow
+      </span>
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span>Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span>Theme: <a href="https://github.com/kb1000fx/Meadow" rel="noopener" target="_blank">Meadow</a></span>
+        </div>
+      
+    </div>
+    <div class="mdui-row">
+      
+        <div class="mdui-col-xs-6 mdui-text-right">
+          <span id="busuanzi_container_site_uv" style="display: none;"> <span class="iconfont icon-user"></span>总访客量 <span id="busuanzi_value_site_uv"></span></span>
+        </div>
+        <div class="mdui-col-xs-6 mdui-text-left">
+          <span id="busuanzi_container_site_pv" style="display: none;"> <span class="iconfont icon-eye"></span>总访问量 <span id="busuanzi_value_site_pv"></span></span>
+        </div>
+      
+    </div>
+ </div>
+</footer>
+  
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-teal" style="z-index:100;"><i class="iconfont icon-arrowup"></i></button>
+  
+  
+
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.8/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({
+        startOnLoad: true,
+        theme: "default"
+    });</script>
+
+
+
+
+<script src="/js/mdui.min.js"></script>
+<script src="/js/meadow.js"></script>
+
+</body>
+</html >
